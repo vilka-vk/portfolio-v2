@@ -1,5 +1,11 @@
 (function(){
   var body=document.body;
+  // A single inner row lets additional metrics collapse completely, including wrapped text.
+  document.querySelectorAll('.project-metrics li+li').forEach(function(item){
+    var content=document.createElement('div');
+    while(item.firstChild)content.appendChild(item.firstChild);
+    item.appendChild(content);
+  });
   var langButtons=document.querySelectorAll('[data-lang-button],#langToggle button');
   function setLanguage(lang){
     body.setAttribute('data-lang',lang);
