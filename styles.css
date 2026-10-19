@@ -53,8 +53,7 @@ img{display:block;max-width:100%}
 .project-card:hover .project-media img{transform:scale(1.035)}
 .project-card:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(244,244,240,.96),rgba(244,244,240,.78) 15%,transparent 38%,transparent 62%,rgba(0,0,0,.62));}
 .project-meta{padding:24px 28px 0;align-items:start;color:#41433e}
-.project-meta .tags{gap:6px}
-.project-meta .tags span{padding:5px 9px;border:1px solid rgba(255,255,255,.55);border-radius:0;background:rgba(15,15,15,.7);color:#fff;font-size:11px;line-height:1.2;text-transform:uppercase;letter-spacing:.06em;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.project-labels{margin:0;padding:0;border:0;background:none;color:var(--ink);font-size:12px;line-height:1.5;font-weight:500;text-transform:uppercase;letter-spacing:.045em}
 .project-title{padding:14px 28px 28px}
 .project-title h3{font-size:clamp(40px,5vw,86px);line-height:.95;letter-spacing:-.065em;text-transform:uppercase;font-weight:500}
 .project-title p{position:absolute;left:28px;bottom:26px;width:calc(100% - 56px);max-width:450px;margin:0;color:white;font-size:clamp(17px,1.6vw,24px);line-height:1.25;text-shadow:0 1px 12px rgba(0,0,0,.2);transition:opacity .25s,transform .35s}
