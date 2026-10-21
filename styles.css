@@ -1,4 +1,4 @@
-:root{--bg:#f4f4f0;--surface:#e9e9e5;--ink:#111210;--muted:#6e706b;--line:#d5d6d0;--acid:#72ee8a;--radius:24px;--shell:min(1440px,calc(100vw - 64px));font-synthesis:none}
+:root{--bg:#f4f4f0;--surface:#e9e9e5;--ink:#111210;--muted:#6e706b;--line:#d5d6d0;--acid:#72ee8a;--radius:24px;--shell:min(1440px,calc(100% - 64px));font-synthesis:none}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.4;-webkit-font-smoothing:antialiased}
@@ -76,7 +76,12 @@ a:focus-visible,button:focus-visible{outline:3px solid #5277ce;outline-offset:4p
 .case .tbl-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
 .case .mval{min-width:0;overflow-wrap:anywhere}
 /* Exhibition-style project tiles with a glass results panel. */
-.case-grid{width:100vw;margin-left:calc((100% - 100vw)/2);gap:1px;background:var(--line)}
+/* Full-bleed sections use their parent width, excluding the browser scrollbar. */
+@media(max-width:980px){:root{--shell:calc(100% - 40px)}}
+@media(max-width:700px){:root{--shell:calc(100% - 28px)}}
+.projects-section.page-shell,.concepts-section.page-shell{width:100%}
+.projects-section>.section-heading,.concepts-section>.section-heading{width:var(--shell);margin-inline:auto}
+.case-grid{width:100%;margin-left:0;gap:1px;background:var(--line)}
 .project-card,.project-card-static{min-height:0;height:clamp(560px,55vw,900px);padding:0;border-radius:0;background:var(--surface);isolation:isolate}
 .project-card:hover,.project-card-static:hover{transform:none;background:var(--surface)}
 .project-media{position:absolute;inset:0;height:100%;margin:0;border-radius:0;z-index:-2}
