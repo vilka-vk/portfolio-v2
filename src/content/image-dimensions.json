@@ -1,0 +1,298 @@
+{
+  "/img/apple-touch-icon.png": {
+    "width": 180,
+    "height": 180
+  },
+  "/img/avatar.png": {
+    "width": 400,
+    "height": 400
+  },
+  "/img/favicon.png": {
+    "width": 64,
+    "height": 64
+  },
+  "/img/work-bashnya.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-forrest.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-gutstuff.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-kant.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-oprosso.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-saymore.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-taromant.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/img/work-trinoray.jpg": {
+    "width": 2880,
+    "height": 1760
+  },
+  "/cases/img/bashnya-01.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/cases/img/bashnya-02.jpg": {
+    "width": 1600,
+    "height": 972
+  },
+  "/cases/img/bashnya-03.jpg": {
+    "width": 1312,
+    "height": 857
+  },
+  "/cases/img/bashnya-04.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/cases/img/bashnya-05.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/cases/img/bashnya-06.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/cases/img/bashnya-07.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/cases/img/bashnya-08.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/cases/img/bashnya-cover.jpg": {
+    "width": 1600,
+    "height": 748
+  },
+  "/cases/img/forrest-01.jpg": {
+    "width": 1600,
+    "height": 1175
+  },
+  "/cases/img/forrest-02.jpg": {
+    "width": 1600,
+    "height": 1175
+  },
+  "/cases/img/forrest-03.jpg": {
+    "width": 1600,
+    "height": 1175
+  },
+  "/cases/img/forrest-04.jpg": {
+    "width": 1600,
+    "height": 1095
+  },
+  "/cases/img/forrest-05.jpg": {
+    "width": 1600,
+    "height": 1095
+  },
+  "/cases/img/forrest-06.jpg": {
+    "width": 1600,
+    "height": 1368
+  },
+  "/cases/img/forrest-07.jpg": {
+    "width": 1600,
+    "height": 1095
+  },
+  "/cases/img/forrest-cover.jpg": {
+    "width": 1600,
+    "height": 770
+  },
+  "/cases/img/gutstuff-01.jpg": {
+    "width": 1600,
+    "height": 764
+  },
+  "/cases/img/gutstuff-02.jpg": {
+    "width": 1600,
+    "height": 984
+  },
+  "/cases/img/gutstuff-03.jpg": {
+    "width": 1600,
+    "height": 684
+  },
+  "/cases/img/gutstuff-04.jpg": {
+    "width": 1600,
+    "height": 764
+  },
+  "/cases/img/gutstuff-05.jpg": {
+    "width": 1013,
+    "height": 552
+  },
+  "/cases/img/gutstuff-06.jpg": {
+    "width": 1013,
+    "height": 552
+  },
+  "/cases/img/gutstuff-07.jpg": {
+    "width": 1013,
+    "height": 552
+  },
+  "/cases/img/gutstuff-08.jpg": {
+    "width": 1013,
+    "height": 552
+  },
+  "/cases/img/gutstuff-09.jpg": {
+    "width": 1013,
+    "height": 552
+  },
+  "/cases/img/gutstuff-10.jpg": {
+    "width": 1013,
+    "height": 552
+  },
+  "/cases/img/gutstuff-11.jpg": {
+    "width": 2000,
+    "height": 1089
+  },
+  "/cases/img/gutstuff-12.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/cases/img/gutstuff-13.jpg": {
+    "width": 1242,
+    "height": 2208
+  },
+  "/cases/img/gutstuff-14.jpg": {
+    "width": 1452,
+    "height": 744
+  },
+  "/cases/img/gutstuff-15.jpg": {
+    "width": 1600,
+    "height": 2392
+  },
+  "/cases/img/gutstuff-16.jpg": {
+    "width": 1600,
+    "height": 1462
+  },
+  "/cases/img/gutstuff-17.jpg": {
+    "width": 1600,
+    "height": 1647
+  },
+  "/cases/img/gutstuff-cover.jpg": {
+    "width": 1600,
+    "height": 800
+  },
+  "/cases/img/saymore-01.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/cases/img/saymore-02.jpg": {
+    "width": 1600,
+    "height": 905
+  },
+  "/cases/img/saymore-03.jpg": {
+    "width": 1600,
+    "height": 844
+  },
+  "/cases/img/saymore-04.jpg": {
+    "width": 1600,
+    "height": 2376
+  },
+  "/cases/img/saymore-05.jpg": {
+    "width": 1600,
+    "height": 1509
+  },
+  "/cases/img/saymore-06.jpg": {
+    "width": 1600,
+    "height": 2522
+  },
+  "/cases/img/saymore-07.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "/cases/img/saymore-08.jpg": {
+    "width": 1600,
+    "height": 800
+  },
+  "/cases/img/saymore-09.jpg": {
+    "width": 1600,
+    "height": 905
+  },
+  "/cases/img/saymore-10.jpg": {
+    "width": 1600,
+    "height": 1329
+  },
+  "/cases/img/saymore-11.jpg": {
+    "width": 1600,
+    "height": 2161
+  },
+  "/cases/img/saymore-12.jpg": {
+    "width": 1600,
+    "height": 873
+  },
+  "/cases/img/saymore-13.jpg": {
+    "width": 1600,
+    "height": 1432
+  },
+  "/cases/img/saymore-14.jpg": {
+    "width": 1600,
+    "height": 3636
+  },
+  "/cases/img/saymore-15.jpg": {
+    "width": 1600,
+    "height": 2376
+  },
+  "/cases/img/saymore-16.jpg": {
+    "width": 1600,
+    "height": 1509
+  },
+  "/cases/img/saymore-17.jpg": {
+    "width": 1600,
+    "height": 2532
+  },
+  "/cases/img/saymore-18.jpg": {
+    "width": 1600,
+    "height": 2522
+  },
+  "/cases/img/saymore-19.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "/cases/img/saymore-20.jpg": {
+    "width": 1600,
+    "height": 1060
+  },
+  "/cases/img/saymore-cover.jpg": {
+    "width": 1600,
+    "height": 770
+  },
+  "/cases/img/taromant-01.jpg": {
+    "width": 2000,
+    "height": 1089
+  },
+  "/cases/img/taromant-02.jpg": {
+    "width": 736,
+    "height": 1104
+  },
+  "/cases/img/taromant-03.jpg": {
+    "width": 460,
+    "height": 532
+  },
+  "/cases/img/taromant-04.jpg": {
+    "width": 1600,
+    "height": 1550
+  },
+  "/cases/img/taromant-05.jpg": {
+    "width": 1600,
+    "height": 575
+  },
+  "/cases/img/taromant-cover.jpg": {
+    "width": 1600,
+    "height": 770
+  },
+  "/cases/img/trinoray-cover.jpg": {
+    "width": 1600,
+    "height": 986
+  }
+}

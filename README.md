@@ -24,8 +24,13 @@ The build generates `dist/`, pre-renders all seven pages to complete HTML, and c
 
 ## Structure
 
-- `src/main.jsx`: shared Header, Footer, ProjectCard, Home and CaseStudy components, language state and scroll effects.
-- `src/content/projects.json`: card labels, metrics, links and images.
+- `src/main.jsx`: browser entry; hydrates pre-rendered HTML in production and mounts React in development.
+- `src/App.jsx`: shared Header, Footer, ProjectCard, Home and CaseStudy components and scoped scroll effects.
+- `src/language-store.js`: cached language preference, storage fallback and cross-tab synchronization.
+- `src/content-renderer.jsx`: cached editorial rendering support and image dimensions/lazy loading.
+- `src/pages.js`: shared page-entry manifest for Vite and pre-rendering.
+- `src/content/projects.json`: explicit card categories, labels, metrics, links and images.
+- `src/content/image-dimensions.json`: intrinsic raster-image dimensions; update this metadata when replacing images.
 - `src/content/*.html`: rich bilingual editorial content converted into React elements with html-react-parser; cases load per page.
 - `styles.css`: shared responsive styles.
 - `index.html` and `cases/*.html`: Vite entries with individual titles and descriptions.
