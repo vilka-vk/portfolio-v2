@@ -1,5 +1,7 @@
 import React, { createContext, memo, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import parse from 'html-react-parser';
+import parse, { domToReact } from 'html-react-parser';
+import { BorderBeam } from 'border-beam';
+import { Skills } from './Skills.jsx';
 import projects from './content/projects.json';
 import homeContent from './content/home.html?raw';
 import { ContentImage, parseContent } from './content-renderer.jsx';
@@ -121,10 +123,49 @@ const projectGroups = projects.reduce((groups, project) => {
   return groups;
 }, { cases: [], concepts: [] });
 
+function ForestBeam({ children, className, hoverOnly = false }) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const highlighted = hovered || focused;
+  return <BorderBeam
+    className={`forest-beam ${className}`} size="md" colorVariant="forest"
+    theme={highlighted ? 'dark' : 'light'} active={!hoverOnly || highlighted}
+    borderRadius={1000} duration={3} glowSize={5}
+    brightness={highlighted ? 2.2 : 1.5} saturation={highlighted ? 2 : 1.8}
+    onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+    onFocus={() => setFocused(true)} onBlur={event => {
+      if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+    }}
+    css={`
+      [data-beam="{id}"]{overflow:visible;isolation:isolate;--beam-stroke-opacity:0;--beam-inner-opacity:0}
+      [data-beam="{id}"] [data-beam-bloom]{
+        z-index:-1;
+        clip-path:none;
+        -webkit-mask:none;
+        mask:none;
+        inset:-12px;
+        padding:0;
+        background:conic-gradient(from var(--beam-angle-{id}),transparent 0%,rgba(57,255,117,.15) 12%,rgba(57,255,117,.65) 30%,#39ff75 48%,#00eeb0 68%,rgba(0,238,176,.6) 82%,rgba(0,238,176,.1) 95%,transparent 100%);
+        filter:blur(28px) saturate(1.8);
+      }
+      [data-beam="{id}"][data-active] [data-beam-bloom],
+      [data-beam="{id}"][data-fading] [data-beam-bloom]{
+        opacity:calc(var(--beam-opacity-{id}) * ${highlighted ? 1 : 0.8});
+      }
+    `}
+  >{children}</BorderBeam>;
+}
+
 const Home = memo(function Home() {
   useInitialAnchor();
   const rootRef = useReveal();
   const content = useMemo(() => parse(homeContent, { replace(node) {
+    if (node.name === 'a' && node.attribs?.class === 'round-link') {
+      return <ForestBeam className="contact-beam">
+        <a className="round-link" href={node.attribs.href}>{domToReact(node.children)}</a>
+      </ForestBeam>;
+    }
+    if (node.attribs?.['data-skills'] !== undefined) return <Skills />;
     const group = node.attribs?.['data-project-grid'];
     if (!group) return;
     const groupProjects = projectGroups[group];
