@@ -10,6 +10,37 @@ const Language = createContext(null);
 const cv = '/Senior_Product_Designer_Violetta_Morozova_Eng.pdf';
 const linkedIn = 'https://linkedin.com/in/violetta-morozova';
 
+function useInitialAnchor() {
+  useEffect(() => {
+    let cancelled = false;
+    let frame;
+    const alignHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      let id;
+      try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
+      const align = () => {
+        if (cancelled || window.location.hash !== hash) return;
+        document.getElementById(id)?.scrollIntoView({ block: 'start', behavior: 'instant' });
+      };
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(align);
+      document.fonts.ready.then(() => {
+        if (!cancelled) frame = requestAnimationFrame(align);
+      });
+    };
+    // In development the browser sees the fragment before React mounts its target.
+    // Repeat after fonts settle so the final position matches the rendered layout.
+    alignHash();
+    window.addEventListener('hashchange', alignHash);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      window.removeEventListener('hashchange', alignHash);
+    };
+  }, []);
+}
+
 function useReveal(ready = true) {
   const rootRef = useRef(null);
   useEffect(() => {
@@ -91,6 +122,7 @@ const projectGroups = projects.reduce((groups, project) => {
 }, { cases: [], concepts: [] });
 
 const Home = memo(function Home() {
+  useInitialAnchor();
   const rootRef = useReveal();
   const content = useMemo(() => parse(homeContent, { replace(node) {
     const group = node.attribs?.['data-project-grid'];
