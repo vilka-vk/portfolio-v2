@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<!doctype html>
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,97 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
+
 </head>
 <body data-lang="ru">
-<header class="site-header">
-    <a class="identity" href="../index.html#top" aria-label="Violetta Morozova — на главную">
-      <img src="../img/avatar.png" alt="Violetta Morozova">
-      <span><b>Violetta Morozova</b><small>Senior Product Designer</small></span>
-    </a>
-    <nav class="header-nav" aria-label="Основная навигация">
-      <a href="../index.html#cases"><span class="lru">Кейсы</span><span class="len">Cases</span></a>
-      <a href="../index.html#concepts"><span class="lru">Концепты</span><span class="len">Concepts</span></a>
-      <a href="../index.html#experience"><span class="lru">Опыт</span><span class="len">Experience</span></a>
-    </nav>
-    <div class="header-actions">
-      <div class="lang-switch" aria-label="Выбрать язык">
-        <button type="button" data-lang-button="ru" class="active">RU</button>
-        <button type="button" data-lang-button="en">EN</button>
-      </div>
-      <a class="quiet-link hide-mobile" href="../Senior_Product_Designer_Violetta_Morozova_Eng.pdf" download>CV ↗</a>
-      <a class="quiet-link hide-tablet" href="https://linkedin.com/in/violetta-morozova" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-  </header>
-<main class="narrow case" id="top">
-  <div class="case-hero">
-    <div class="case-hero-top">
-      <a class="back-link" href="../index.html#cases">← <span class="lru">Все кейсы</span><span class="len">All cases</span></a>
-    </div>
-    <img class="case-cover" src="img/forrest-cover.jpg" alt="Forrest — ERP/CRM">
-    <h1 class="case-title"><span class="lru">Дизайн интерфейсов для панели администратора ресторана</span><span class="len">Restaurant admin panel interfaces</span></h1>
-    <p class="case-sub"><span class="lru">ERP/CRM-система для ресторанов · с ноября 2025</span><span class="len">ERP/CRM for restaurants · since November 2025</span></p>
-    <div class="case-meta">
-      <div class="mrow"><span class="mkey"><span class="lru">Период</span><span class="len">Period</span></span><span class="mval"><span class="lru">с ноября 2025 года до февраля 2026</span><span class="len">Since November 2025 to February 2026</span></span></div>
-      <div class="mrow"><span class="mkey"><span class="lru">Теги</span><span class="len">Tags</span></span><span class="mval tags"><span class="tag">UI/UX</span><span class="tag">Design system</span><span class="tag">SaaS</span></span></div>
-    </div>
-  </div>
-
-  <h2><span class="lru">О проекте</span><span class="len">About</span></h2>
-  <div class="lru"><p>Стартап, который разрабатывает систему администрирования ресторанов. Основные пользователи: владелец ресторана, администратор и официанты.</p><p>Я пришла на проект, когда уже большая часть функционала была разработана другими дизайнерами (бывшими). Моя задача состояла в том, чтобы разрабатывать новые функции для первой версии системы. А также переносить эти макеты на новую дизайн-систему для второй версии продукта.</p><p>В портфолио я покажу основные работы по первой версии продукта. По ссылке на фигму можно изучить макеты детальнее.</p></div>
-  <div class="len"><p>A startup building a restaurant administration system. Core users: restaurant owners, administrators and waitstaff.</p><p>I joined when most of the functionality had already been designed by previous designers. My job was to design new features for v1 — and migrate those layouts onto the new design system for v2.</p><p>This case shows the key v1 work. The Figma link has the layouts in detail.</p></div>
-
-  <h2><span class="lru">Процессы</span><span class="len">Process</span></h2>
-  <div class="lru"><ul>
-    <li>Бизнес ставит задачу на разработку функционала</li>
-    <li>Аналитики проводят анализ конкурентов, выявляют потребности пользователей и взаимосвязи в системе, составляют ТЗ и предоставляют референсы или прототипы</li>
-    <li>Дизайнер, используя дизайн-систему MUI для базовой версии и Mantis для новой версии системы, собирает макеты, прорабатывает взаимодействие пользователя с функционалом и предоставляет состояния макетов при этих взаимодействиях</li>
-    <li>Улучшения решений прорабатываются посредством общения с аналитиком, поставившим задачу</li>
-  </ul></div>
-  <div class="len"><ul>
-    <li>Business requests a feature</li>
-    <li>Analysts research competitors, uncover user needs and system relations, write specs and provide references or prototypes</li>
-    <li>Using the MUI design system for the base version and Mantis for the new one, the designer builds layouts, details user interactions and provides layout states for them</li>
-    <li>Improvements are worked through with the analyst who set the task</li>
-  </ul></div>
-
-  <h2><span class="lru">Продуктовые фичи</span><span class="len">Product features</span></h2>
-  <div class="lru"><p>Спроектировала систему администрирования для 3 ролей (владельцы, администраторы, официанты). Внедрила ключевые функциональные модули: управление заказами, доставкой, бронированием и сводной аналитикой. Разработала интерактивный конструктор зала с визуальной расстановкой столов в реальном времени для бронирования, а также канбан-доску для управления потоком заказов.</p></div>
-  <div class="len"><p>Designed an administration system for 3 roles (owners, administrators, waitstaff). Implemented key modules: order management, delivery, reservations and consolidated analytics. Built an interactive dining-room configurator with real-time visual table layout for reservations, plus a Kanban board for the order flow.</p></div>
-
-  <h2><span class="lru">Метрики</span><span class="len">Metrics</span></h2>
-  <div class="lru"><p>После запуска обновлённых сценариев время обработки заказа сократилось на <b>~28%</b>, создание бронирования — на <b>~25%</b>, а количество ошибок и конфликтов при работе с бронями снизилось на <b>~37%</b>.</p></div>
-  <div class="len"><p>After the updated flows launched, order processing time dropped by <b>~28%</b>, reservation creation by <b>~25%</b>, and errors and conflicts around reservations fell by <b>~37%</b>.</p></div>
-
-  <h2><span class="lru">Дизайн-система</span><span class="len">Design system</span></h2>
-  <div class="lru"><p>Осуществила бесшовную миграцию макетов первой версии со старого UI-фреймворка (MUI) на новую кастомную дизайн-систему (Mantis) для v2 продукта.</p></div>
-  <div class="len"><p>Seamlessly migrated v1 layouts from the old UI framework (MUI) to the new custom design system (Mantis) for the v2 product.</p></div>
-
-  <h2><span class="lru">Дизайны</span><span class="len">Designs</span></h2>
-  <h3><span class="lru">Канбан-доска с заказами для официантов в двух вариантах оформления</span><span class="len">Order Kanban for waitstaff, two visual variants</span></h3>
-  <figure class="case-fig"><img src="img/forrest-01.jpg" alt="Канбан заказов"></figure>
-  <figure class="case-fig"><img src="img/forrest-02.jpg" alt="Канбан заказов, вариант"></figure>
-  <figure class="case-fig"><img src="img/forrest-03.jpg" alt="Order details"><figcaption>Order details</figcaption></figure>
-  <h3><span class="lru">Бронирование столов, для официантов и администраторов</span><span class="len">Table reservations, for waitstaff and admins</span></h3>
-  <figure class="case-fig"><img src="img/forrest-04.jpg" alt="Схема зала"><figcaption><span class="lru">Схема зала</span><span class="len">Dining-room scheme</span></figcaption></figure>
-  <figure class="case-fig"><img src="img/forrest-05.jpg" alt="Клик по столу"><figcaption><span class="lru">Клик по столу</span><span class="len">Table click</span></figcaption></figure>
-  <figure class="case-fig"><img src="img/forrest-06.jpg" alt="Редактирование бронирования"><figcaption><span class="lru">Редактирование бронирования</span><span class="len">Editing a reservation</span></figcaption></figure>
-  <figure class="case-fig"><img src="img/forrest-07.jpg" alt="Список бронирований"><figcaption><span class="lru">Список бронирований</span><span class="len">Reservation list</span></figcaption></figure>
-
-  <nav class="case-nav">
-    <a href="bashnya.html">← Bashnya</a>
-    <a href="gutstuff.html"><span class="lru">The Gut Stuff</span><span class="len">The Gut Stuff</span> →</a>
-  </nav>
-</main>
-
-  <footer class="site-footer">
-    <div class="page-shell footer-inner">
-      <p class="eyebrow"><span class="lru">Есть задача?</span><span class="len">Have a project?</span></p>
-      <a class="footer-email" href="mailto:violetta.morozova.designer@gmail.com"><span class="lru">Давайте обсудим</span><span class="len">Let’s talk</span><i>↗</i></a>
-      <div class="footer-bottom"><span>© 2026 Violetta Morozova</span><div><a href="../Senior_Product_Designer_Violetta_Morozova_Eng.pdf" download>CV ↗</a><a href="https://linkedin.com/in/violetta-morozova" target="_blank" rel="noopener">LinkedIn ↗</a><a href="#top"><span class="lru">Наверх ↑</span><span class="len">Top ↑</span></a></div></div>
-    </div>
-  </footer>
-<script src="../script.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
-
