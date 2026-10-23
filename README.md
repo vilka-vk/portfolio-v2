@@ -18,6 +18,7 @@ The server runs at http://127.0.0.1:4173 with hot reload.
 ```sh
 npm run build
 npm run check:build
+npm test
 npm run preview
 ```
 
@@ -31,6 +32,7 @@ The build generates `dist/`, pre-renders all seven pages to complete HTML, and c
 - `src/App.jsx`: shared Header, Footer, ProjectCard, Home and CaseStudy components and scoped scroll effects.
 - `src/language-store.js`: cached language preference, storage fallback and cross-tab synchronization.
 - `src/Skills.jsx`: bilingual skills grouped by discipline.
+- `src/page-motion.js`: GSAP opacity/blur section reveals, hash entry and history restoration; respects reduced motion and cleans up animations/listeners on unmount.
 - `src/content-renderer.jsx`: cached editorial rendering support and image dimensions/lazy loading.
 - `src/pages.js`: shared page-entry manifest for Vite and pre-rendering.
 - `src/content/projects.json`: explicit card categories, labels, metrics, links and images.

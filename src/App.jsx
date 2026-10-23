@@ -1,7 +1,8 @@
-import React, { createContext, memo, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import React, { createContext, memo, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import { BorderBeam } from 'border-beam';
 import { Skills } from './Skills.jsx';
+import { createPageMotion } from './page-motion.js';
 import projects from './content/projects.json';
 import homeContent from './content/home.html?raw';
 import { ContentImage, parseContent } from './content-renderer.jsx';
@@ -12,52 +13,11 @@ const Language = createContext(null);
 const cv = '/Senior_Product_Designer_Violetta_Morozova_Eng.pdf';
 const linkedIn = 'https://linkedin.com/in/violetta-morozova';
 
-function useInitialAnchor() {
-  useEffect(() => {
-    let cancelled = false;
-    let frame;
-    const alignHash = () => {
-      const hash = window.location.hash;
-      if (!hash) return;
-      let id;
-      try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
-      const align = () => {
-        if (cancelled || window.location.hash !== hash) return;
-        document.getElementById(id)?.scrollIntoView({ block: 'start', behavior: 'instant' });
-      };
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(align);
-      document.fonts.ready.then(() => {
-        if (!cancelled) frame = requestAnimationFrame(align);
-      });
-    };
-    // In development the browser sees the fragment before React mounts its target.
-    // Repeat after fonts settle so the final position matches the rendered layout.
-    alignHash();
-    window.addEventListener('hashchange', alignHash);
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(frame);
-      window.removeEventListener('hashchange', alignHash);
-    };
-  }, []);
-}
-
-function useReveal(ready = true) {
+function usePageMotion(ready = true) {
   const rootRef = useRef(null);
-  useEffect(() => {
-    if (!ready || !rootRef.current || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const items = rootRef.current.querySelectorAll('.project-card,.experience-list article,.case-fig,.case h2,.case h3');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -5%' });
-    items.forEach(item => { item.classList.add('reveal'); observer.observe(item); });
-    return () => { observer.disconnect(); items.forEach(item => item.classList.remove('reveal', 'visible')); };
+  useLayoutEffect(() => {
+    if (!ready || !rootRef.current) return;
+    return createPageMotion(rootRef.current);
   }, [ready]);
   return rootRef;
 }
@@ -157,8 +117,7 @@ function ForestBeam({ children, className, hoverOnly = false }) {
 }
 
 const Home = memo(function Home() {
-  useInitialAnchor();
-  const rootRef = useReveal();
+  const rootRef = usePageMotion();
   const content = useMemo(() => parse(homeContent, { replace(node) {
     if (node.name === 'a' && node.attribs?.class === 'round-link') {
       return <ForestBeam className="contact-beam">
@@ -177,7 +136,7 @@ const Home = memo(function Home() {
 function CaseStudy({ slug, initialContent }) {
   const [content, setContent] = useState(initialContent || '');
   const [failed, setFailed] = useState(false);
-  const rootRef = useReveal(Boolean(content));
+  const rootRef = usePageMotion(Boolean(content));
   const renderedContent = useMemo(() => content ? parseContent(content, true) : null, [content]);
   useEffect(() => {
     if (initialContent) return;
