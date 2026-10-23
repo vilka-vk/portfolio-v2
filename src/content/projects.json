@@ -16,13 +16,13 @@
       "<span class=\"lru\"><b>−28%</b> время заказа</span><span class=\"len\"><b>−28%</b> order time</span>",
       "<span class=\"lru\"><b>−25%</b> время бронирования</span><span class=\"len\"><b>−25%</b> reservation time</span>",
       "<span class=\"lru\"><b>−37%</b> конфликтов</span><span class=\"len\"><b>−37%</b> conflicts</span>",
-      "<span class=\"lru\">MUI → кастомная Mantis</span><span class=\"len\">MUI → custom Mantis system</span>"
+      "<span class=\"lru\">MUI → кастомная Mantis</span><span class=\"len\">MUI → custom Mantis system</span>"
     ],
     "category": "cases"
   },
   {
     "id": "gutstuff",
-    "title": "The Gut Stuff",
+    "title": "The Gut Stuff",
     "href": "cases/gutstuff.html",
     "external": false,
     "image": "img/work-gutstuff.jpg",
@@ -35,7 +35,7 @@
     ],
     "metrics": [
       "<b>10K+</b> <span class=\"lru\">загрузок</span><span class=\"len\">downloads</span>",
-      "<span class=\"lru\">Запуск за <b>6 месяцев</b></span><span class=\"len\">Launched in <b>6 months</b></span>",
+      "<span class=\"lru\">Запуск за <b>6 месяцев</b></span><span class=\"len\">Launched in <b>6 months</b></span>",
       "<span class=\"lru\"><b>100%</b> скоуп</span><span class=\"len\"><b>100%</b> scope</span>"
     ],
     "category": "cases"
@@ -54,8 +54,8 @@
       "Web"
     ],
     "metrics": [
-      "<span class=\"lru\">Десктопный MVP за <b>3 недели</b></span><span class=\"len\">Desktop MVP in <b>3 weeks</b></span>",
-      "<span class=\"lru\"><b>1000+</b> адаптивных экранов</span><span class=\"len\"><b>1000+</b> responsive screens</span>",
+      "<span class=\"lru\">Десктопный MVP за <b>3 недели</b></span><span class=\"len\">Desktop MVP in <b>3 weeks</b></span>",
+      "<span class=\"lru\"><b>1000+</b> адаптивных экранов</span><span class=\"len\"><b>1000+</b> responsive screens</span>",
       "<span class=\"lru\">Масштабируемая дизайн-система</span><span class=\"len\">Scalable design system</span>"
     ],
     "category": "cases"
@@ -77,7 +77,7 @@
     "metrics": [
       "<span class=\"lru\"><b>−18%</b> время подготовки отчётов</span><span class=\"len\"><b>−18%</b> report preparation time</span>",
       "<span class=\"lru\"><b>−12%</b> ошибок настройки</span><span class=\"len\"><b>−12%</b> setup errors</span>",
-      "<span class=\"lru\"><b>−15%</b> тикетов в поддержку</span><span class=\"len\"><b>−15%</b> support tickets</span>"
+      "<span class=\"lru\"><b>−15%</b> тикетов в поддержку</span><span class=\"len\"><b>−15%</b> support tickets</span>"
     ],
     "category": "cases"
   },
@@ -95,9 +95,9 @@
       "Desktop"
     ],
     "metrics": [
-      "<span class=\"lru\">Разработка фич: <b>7 → 3 дня</b></span><span class=\"len\">Feature development: <b>7 → 3 days</b></span>",
-      "<span class=\"lru\">Дизайн-в-дев: <b>5 → 2 дня</b></span><span class=\"len\">Design-to-dev: <b>5 → 2 days</b></span>",
-      "<span class=\"lru\">AI-набор иконок и персонаж</span><span class=\"len\">AI icon set and character</span>"
+      "<span class=\"lru\">Разработка фич: <b>7 → 3 дня</b></span><span class=\"len\">Feature development: <b>7 → 3 days</b></span>",
+      "<span class=\"lru\">Дизайн-в-дев: <b>5 → 2 дня</b></span><span class=\"len\">Design-to-dev: <b>5 → 2 days</b></span>",
+      "<span class=\"lru\">AI-набор иконок и персонаж</span><span class=\"len\">AI icon set and character</span>"
     ],
     "category": "concepts"
   },
@@ -117,8 +117,8 @@
     ],
     "metrics": [
       "<span class=\"lru\">Соло end-to-end</span><span class=\"len\">Solo end-to-end</span>",
-      "UX/UI → Frontend → CMS",
-      "<span class=\"lru\">Без этапа хэндоффа</span><span class=\"len\">No handoff step</span>"
+      "UX/UI → Frontend → CMS",
+      "<span class=\"lru\">Без этапа хэндоффа</span><span class=\"len\">No handoff step</span>"
     ],
     "category": "concepts"
   },
@@ -136,8 +136,8 @@
       "Mobile"
     ],
     "metrics": [
-      "<b>42%</b> D1 retention",
-      "<span class=\"lru\"><b>3.8%</b> конверсия в покупку спинов</span><span class=\"len\"><b>3.8%</b> conversion to spin package purchase</span>"
+      "<b>42%</b> D1 retention",
+      "<span class=\"lru\"><b>3.8%</b> конверсия в покупку спинов</span><span class=\"len\"><b>3.8%</b> conversion to spin package purchase</span>"
     ],
     "category": "concepts"
   },
@@ -156,7 +156,7 @@
     ],
     "metrics": [
       "<span class=\"lru\">Оптимизация поисковой логики</span><span class=\"len\">Search logic optimization</span>",
-      "<span class=\"lru\">Проект получил <b>раунд инвестиций</b></span><span class=\"len\">The project secured a <b>round of funding</b></span>"
+      "<span class=\"lru\">Проект получил <b>раунд инвестиций</b></span><span class=\"len\">The project secured a <b>round of funding</b></span>"
     ],
     "category": "concepts"
   }

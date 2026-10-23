@@ -26,6 +26,10 @@ The build generates `dist/`, pre-renders all seven pages to complete HTML, and c
 
 `check:build` verifies the generated pages, local asset URLs, navigation anchors, image metadata and a single analytics counter per page without sending analytics requests. It does not replace browser-based visual testing.
 
+## Text typography
+
+Run `npm run typography` after changing editorial copy, project metrics or skills. It applies conservative nonbreaking-space rules to visible text, preserving wording, markup, URLs and code. `npm run check:typography` checks without writing. Typograf runs only as a development tool and is not shipped to the browser. Responsive line wrapping remains enabled; headings use balanced wrapping and paragraphs use pretty wrapping where supported.
+
 ## Structure
 
 - `src/main.jsx`: browser entry; hydrates pre-rendered HTML in production and mounts React in development.

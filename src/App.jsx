@@ -37,7 +37,7 @@ function Header({ isCase }) {
   }, []);
   const sectionLink = id => `${isCase ? '/index.html' : ''}#${id}`;
   return <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-    <a className="identity" href={sectionLink('top')} aria-label="Violetta Morozova — на главную">
+    <a className="identity" href={sectionLink('top')} aria-label="Violetta Morozova — на главную">
       <ContentImage src="/img/avatar.png" alt="Violetta Morozova" loading="eager" />
       <span><b>Violetta Morozova</b><small>Senior Product Designer</small></span>
     </a>
@@ -58,7 +58,7 @@ function Header({ isCase }) {
 
 function Footer() {
   return <footer className="site-footer"><div className="page-shell footer-inner">
-    <div className="footer-bottom"><span>© 2026 Violetta Morozova</span><div>
+    <div className="footer-bottom"><span>© 2026 Violetta Morozova</span><div>
       <a href={cv} download>CV ↗</a>
       <a href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="#top"><Text ru="Наверх ↑" en="Top ↑" /></a>
@@ -146,7 +146,7 @@ function CaseStudy({ slug, initialContent }) {
     load().then(value => { if (active) setContent(value); }).catch(() => { if (active) setFailed(true); });
     return () => { active = false; };
   }, [slug, initialContent]);
-  if (failed) return <main className="narrow case" id="top"><h1><Text ru="Не удалось открыть кейс" en="Unable to load this case" /></h1><a href="/index.html#cases"><Text ru="Все кейсы" en="All cases" /></a></main>;
+  if (failed) return <main className="narrow case" id="top"><h1><Text ru="Не удалось открыть кейс" en="Unable to load this case" /></h1><a href="/index.html#cases"><Text ru="Все кейсы" en="All cases" /></a></main>;
   return <main className="narrow case" id="top" tabIndex={-1} ref={rootRef} aria-busy={!content}>{renderedContent || <p role="status"><Text ru="Загрузка кейса…" en="Loading case…" /></p>}</main>;
 }
 
@@ -159,7 +159,7 @@ export function App({ pathname, initialContent }) {
     document.documentElement.lang = language;
   }, [language]);
   return <Language.Provider value={languageContext}>
-    <a className="skip-link" href="#top"><Text ru="Перейти к содержимому" en="Skip to content" /></a>
+    <a className="skip-link" href="#top"><Text ru="Перейти к содержимому" en="Skip to content" /></a>
     <Header isCase={Boolean(slug)} />
     {slug ? <CaseStudy slug={slug} initialContent={initialContent} /> : <Home />}
     <Footer />
