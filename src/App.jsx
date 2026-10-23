@@ -90,8 +90,8 @@ function Header({ isCase }) {
       <div className="lang-switch" role="group" aria-label={language === 'en' ? 'Select language' : 'Выбрать язык'}>
         {['ru', 'en'].map(value => <button key={value} type="button" className={language === value ? 'active' : ''} aria-pressed={language === value} onClick={() => setLanguage(value)}>{value.toUpperCase()}</button>)}
       </div>
-      <a className="quiet-link hide-mobile" href={cv} download>CV ↗</a>
-      <a className="quiet-link hide-tablet" href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a className="quiet-link" href={cv} download>CV ↗</a>
+      <a className="quiet-link hide-mobile hide-tablet" href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </header>;
 }

@@ -17,16 +17,20 @@ The server runs at http://127.0.0.1:4173 with hot reload.
 
 ```sh
 npm run build
+npm run check:build
 npm run preview
 ```
 
 The build generates `dist/`, pre-renders all seven pages to complete HTML, and copies the original images and CV. Stop the development server before running preview: both use port 4173.
+
+`check:build` verifies the generated pages, local asset URLs, navigation anchors, image metadata and a single analytics counter per page without sending analytics requests. It does not replace browser-based visual testing.
 
 ## Structure
 
 - `src/main.jsx`: browser entry; hydrates pre-rendered HTML in production and mounts React in development.
 - `src/App.jsx`: shared Header, Footer, ProjectCard, Home and CaseStudy components and scoped scroll effects.
 - `src/language-store.js`: cached language preference, storage fallback and cross-tab synchronization.
+- `src/Skills.jsx`: bilingual skills grouped by discipline.
 - `src/content-renderer.jsx`: cached editorial rendering support and image dimensions/lazy loading.
 - `src/pages.js`: shared page-entry manifest for Vite and pre-rendering.
 - `src/content/projects.json`: explicit card categories, labels, metrics, links and images.
@@ -36,6 +40,7 @@ The build generates `dist/`, pre-renders all seven pages to complete HTML, and c
 - `index.html` and `cases/*.html`: Vite entries with individual titles and descriptions.
 - `scripts/prerender.mjs`: generates complete production HTML.
 - `scripts/copy-assets.mjs`: packages assets using original URLs.
+- `scripts/verify-build.mjs`: production-output integrity checks.
 
 ## Deployment
 

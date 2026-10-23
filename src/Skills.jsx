@@ -10,7 +10,7 @@ const product = [
   ['Доступность (WCAG)', 'Accessibility (WCAG)'],
 ];
 const groups = [
-  { id: 'ai', title: ['AI', 'AI'], items: ['Cursor', 'Claude (Code & Design)', 'OpenCode', 'Figma Make', 'Google AI Studio'] },
+  { id: 'ai', title: ['AI', 'AI'], items: ['Cursor', 'Claude (Code & Design)', 'ChatGPT + Codex', 'Figma Make', 'Google AI Studio'] },
   { id: 'tools', title: ['Инструменты', 'Tools'], items: ['Figma', 'Miro', 'Notion', 'Asana', 'Adobe Creative Suite'] },
   { id: 'leadership', title: ['Лидерство', 'Leadership'], items: [
     ['Управление командой', 'Team Management'], ['Найм и онбординг', 'Hiring & Onboarding'], ['Менторство', 'Mentorship'],

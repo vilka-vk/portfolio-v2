@@ -5,7 +5,12 @@ import { createServer } from 'vite';
 import { pageEntries } from '../src/pages.js';
 
 // Generate complete HTML for crawlers, link previews and the initial page paint.
-const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' });
+const server = await createServer({
+  server: { middlewareMode: true, hmr: false },
+  appType: 'custom',
+  // This server only loads SSR modules; client dependency scanning is unnecessary.
+  optimizeDeps: { noDiscovery: true, include: [] },
+});
 try {
   const { App } = await server.ssrLoadModule('/src/App.jsx');
   for (const entry of pageEntries) {
