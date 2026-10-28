@@ -1,0 +1,94 @@
+/* Case reading system. Home and project tiles keep their own type scale. */
+.narrow.case {
+  --case-title-size: 40px;
+  --case-title-leading: 48px;
+  --case-section-size: 28px;
+  --case-section-leading: 36px;
+  --case-intro-size: 20px;
+  --case-intro-leading: 28px;
+  --case-result-size: 32px;
+  --case-result-leading: 40px;
+  --case-highlight: #6cd58f;
+  position: relative;
+  width: min(960px, calc(100% - 64px));
+  margin-inline: auto;
+  padding: 64px 0 80px;
+  font-size: 16px;
+  line-height: 24px;
+  overflow-wrap: break-word;
+}
+.case :is(h1,h2,h3,h4) {font-weight:500; text-wrap:balance; color:var(--ink)}
+.case h1 {font-size:var(--case-title-size); line-height:var(--case-title-leading); letter-spacing:-.03em; margin:0 0 16px}
+.case h2 {font-size:var(--case-section-size); line-height:var(--case-section-leading); letter-spacing:-.02em; margin:0 0 24px}
+.case :is(h3,h4) {font-size:20px; line-height:28px; letter-spacing:-.01em; margin:0 0 12px}
+.case :is(p,li,td,th) {font-size:16px; line-height:24px; letter-spacing:0}
+.case p {margin:0 0 16px}
+.case p:last-child {margin-bottom:0}
+.case strong,.case b {font-weight:600}
+.case a {text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px}
+.case a:hover {text-decoration-color:var(--ink); color:var(--ink)}
+.case a:focus-visible {outline:2px solid var(--ink); outline-offset:4px; border-radius:4px}
+.case ::selection {background:#d9dfd0; color:#141612}
+.case .case-sub {font-size:var(--case-intro-size); line-height:var(--case-intro-leading); color:#5b5e56; margin:0}
+.case-section {margin-top:80px; scroll-margin-top:128px}
+.case-prose {width:100%}
+.case-prose + .case-prose {margin-top:16px}
+.case-columns {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; margin:32px 0}
+.case-columns > div {min-width:0}
+.case-detail-grid {--detail-columns:2; list-style:none; margin:32px 0; padding:0; display:grid; grid-template-columns:repeat(var(--detail-columns),minmax(0,1fr)); gap:32px}
+.case-detail-grid:has(> li:last-child:nth-child(odd)) {--detail-columns:3}
+.case-detail-grid > li {min-width:0}
+.case-detail-grid h3 {margin-bottom:8px}
+.case-steps {list-style:none; counter-reset:case-step; padding:0; margin:32px 0; display:grid; gap:24px}
+.case-steps > li {position:relative; padding-left:40px; counter-increment:case-step}
+.case-steps > li::before {content:counter(case-step); position:absolute; left:0; top:0; width:24px; line-height:28px; color:#5b5e56; font-variant-numeric:tabular-nums}
+.case-note {margin:32px 0; padding:24px 0; border-block:1px solid var(--line)}
+.case-quote {margin:32px 0; padding:24px 0; border-block:1px solid var(--line)}
+.case-quote p {font-size:20px; line-height:28px; letter-spacing:-.01em}
+.case-quote cite {display:block; font-style:normal; color:#5b5e56; font-size:16px; line-height:24px; margin-top:16px}
+.case :is(em,mark) {font-style:normal; color:var(--ink); background:color-mix(in srgb,var(--case-highlight) 44%,transparent); padding:0 4px; border-radius:4px; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+.case-fig {margin:32px 0}
+.case-fig:last-child {margin-bottom:0}
+.case-fig img {display:block; width:100%; height:auto; border-radius:12px}
+.case-fig figcaption {margin:12px 0 0; color:#5b5e56; font-size:16px; line-height:24px}
+.case-table {width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums}
+.case-table :is(th,td) {padding:12px 16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+.case .tbl-wrap {max-width:100%; overflow-x:auto; overscroll-behavior-x:contain}
+.case-results {margin-top:48px; scroll-margin-top:128px}
+.case-results ul {list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px}
+.case-results li {min-width:0; min-height:160px; padding:24px; border-radius:24px; background:#eaece7; display:flex; flex-direction:column; justify-content:space-between; gap:24px}
+.case-results .case-result-value {font-size:var(--case-result-size); line-height:var(--case-result-leading); letter-spacing:-.02em; font-weight:500; font-variant-numeric:tabular-nums; margin:0}
+.case-results .case-result-label {color:#5b5e56; margin:0}
+.case-outline {margin:0 0 40px}
+.case-outline nav {display:flex; flex-wrap:wrap; gap:8px 20px}
+.case-outline a {display:block; color:#5b5e56; font-size:16px; line-height:24px; text-decoration:none; padding:4px 0}
+.case-outline a:hover,.case-outline a:focus-visible {text-decoration:underline}
+.case-outline .case-back {display:flex; align-items:center; gap:8px; margin-bottom:24px; padding:0}
+.case-back svg {flex-shrink:0}
+.case-nav {display:flex; justify-content:space-between; align-items:start; gap:24px; padding:0; margin-top:64px}
+.case-nav a {font-size:28px; line-height:36px; font-weight:500; letter-spacing:-.02em}
+.case-nav a[data-direction="next"] {margin-left:auto; text-align:right}
+@media(min-width:1408px) {
+  .case-outline {position:sticky; top:124px; float:left; width:160px; margin:0 0 0 -192px; max-height:calc(100svh - 156px); overflow-y:auto; scrollbar-width:thin; scrollbar-color:#bfc2b9 transparent}
+  .case-outline nav {flex-direction:column; gap:8px}
+}
+@media(max-width:700px) {
+  .narrow.case {--case-title-size:32px; --case-title-leading:40px; --case-section-size:24px; --case-section-leading:32px; --case-intro-size:16px; --case-intro-leading:24px; --case-result-size:28px; --case-result-leading:36px; width:calc(100% - 32px); padding:24px 0 56px}
+  .case-section {margin-top:56px; scroll-margin-top:96px}
+  .case-columns {grid-template-columns:1fr; gap:24px; margin:24px 0}
+  .case-detail-grid {grid-template-columns:1fr; gap:24px; margin:24px 0}
+  .case-results {margin-top:40px; scroll-margin-top:96px}
+  .case-results ul {grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+  .case-results li {min-height:160px; padding:20px; border-radius:20px; gap:20px}
+  .case-outline {margin-bottom:24px; min-width:0}
+  .case-outline nav {flex-wrap:nowrap; overflow-x:auto; padding-bottom:12px; scrollbar-width:thin; scrollbar-color:#bfc2b9 transparent}
+  .case-outline a {flex-shrink:0; max-width:240px}
+  .case-fig {margin:24px 0}
+  .case-fig img {border-radius:8px}
+  .case-nav {margin-top:48px}
+  .case-nav a {font-size:24px; line-height:32px}
+}
+@media(max-width:480px) {
+  .case-results ul {grid-template-columns:1fr}
+  .case-results li {min-height:128px}
+}

@@ -2,10 +2,18 @@ const key = 'vm-v2-lang';
 const listeners = new Set();
 let current;
 
+function getBrowserLanguage() {
+  if (typeof navigator === 'undefined') return 'ru';
+  return (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+}
+
 export function getLanguage() {
   if (current === undefined) {
-    current = 'ru';
-    try { current = localStorage.getItem(key) === 'en' ? 'en' : 'ru'; } catch { /* Storage is optional. */ }
+    current = getBrowserLanguage();
+    try {
+      const stored = localStorage.getItem(key);
+      if (stored === 'ru' || stored === 'en') current = stored;
+    } catch { /* Storage is optional. */ }
   }
   return current;
 }

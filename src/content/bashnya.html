@@ -1,112 +1,31 @@
-
-  <div class="case-hero">
-    <div class="case-hero-top">
-      <a class="back-link" href="../index.html#concepts">← <span class="lru">Все концепты</span><span class="len">All concepts</span></a>
-    </div>
-    <img class="case-cover" src="img/bashnya-cover.jpg" alt="Bashnya — game kiosk">
-    <h1 class="case-title"><span class="lru">Bashnya — интерфейс игрового киоска</span><span class="len">Bashnya — game kiosk interface</span></h1>
-    <p class="case-sub"><span class="lru">Тестовое задание · Game UI/UX · desktop, 2560×1440 · 8–10 часов, соло</span><span class="len">Test task · Game UI/UX · desktop, 2560×1440 · 8–10 hours, solo</span></p>
-    <div class="case-meta">
-      <div class="mrow"><span class="mkey"><span class="lru">Роль</span><span class="len">Role</span></span><span class="mval"><span class="lru">UI/UX designer (соло)</span><span class="len">UI/UX designer (solo)</span></span></div>
-      <div class="mrow"><span class="mkey"><span class="lru">Теги</span><span class="len">Tags</span></span><span class="mval tags"><span class="tag">Research</span><span class="tag">UI/UX</span><span class="tag">Graphic design</span><span class="tag">Game</span><span class="tag">Icon design</span></span></div>
-    </div>
-  </div>
-
-  <h2><span class="lru">Situation</span><span class="len">Situation</span></h2>
-  <div class="lru"><p>Тестовое задание для игровой студии: спроектировать интерфейс киоска для multiplayer roguelike в сеттинге альтернативных 90-х, где СССР не распался</p><p>Между уровнями игроки попадают к киоску, сдают найденный металлолом и покупают аптечки, патроны и еду. Покупка идёт через живую очередь: каждому игроку даётся <b>10 секунд</b>, а ассортимент общий и ограниченный. Пока игрок ждёт, он может изучать товары и заранее собирать корзину.</p><p>Главный UX-риск — совместить атмосферный игровой экран с большим количеством данных: очередь, таймер, витрина, цены, корзина, HUD и действия игрока.</p></div>
-  <div class="len"><p>A test task for a game studio: design a kiosk interface for a multiplayer roguelike set in an alternate 90s where the USSR never fell.</p><p>Between levels, players visit the kiosk to trade scrap metal and buy medkits, ammo and food. Purchases run through a live queue: each player gets <b>10 seconds</b>, stock is shared and limited. While waiting, players can browse goods and pre-build their cart.</p><p>The main UX risk — fitting an atmospheric game screen with dense data: queue, timer, showcase, prices, cart, HUD and player actions.</p></div>
-  <figure class="case-fig"><img src="img/bashnya-01.jpg" alt="Киоск — ожидание очереди"><figcaption><span class="lru">Киоск — основной вид, состояние ожидания своей очереди</span><span class="len">Kiosk — main view, waiting for your turn</span></figcaption></figure>
-
-  <h2><span class="lru">Task</span><span class="len">Task</span></h2>
-  <div class="lru">
-    <p>Нужно было создать основной экран киоска и показать ключевые состояния взаимодействия.</p>
-    <p><b>Интерфейс должен был:</b></p>
-    <ul>
-      <li>показывать очередь и оставшееся время хода</li>
-      <li>позволять собирать корзину во время ожидания</li>
-      <li>активировать «Купить» и «Сдать лом» только в очередь игрока</li>
-      <li>объяснять эффект, цену и тип товара</li>
-      <li>корректно обрабатывать ситуацию, когда другой игрок уже купил товар из корзины</li>
-      <li>сохранять читаемость поверх игрового окружения и поддерживать эстетику sovietpunk</li>
-    </ul>
-    <p><b>Что на выходе:</b> витрина с ассортиментом, очередь игроков, таймер, HUD, карточка товара, корзина, состояния «Твоя очередь» и «Продано», два варианта корзины.</p>
-  </div>
-  <div class="len">
-    <p>Create the kiosk's main screen and show the key interaction states.</p>
-    <p><b>The interface had to:</b></p>
-    <ul>
-      <li>show the queue and remaining turn time</li>
-      <li>let players build the cart while waiting</li>
-      <li>enable “Buy” and “Sell scrap” only on the player's turn</li>
-      <li>explain each item's effect, price and type</li>
-      <li>handle the case where another player already bought an item from your cart</li>
-      <li>stay readable over the game scene and keep the sovietpunk aesthetic</li>
-    </ul>
-    <p><b>Deliverables:</b> assortment showcase, player queue, timer, HUD, item card, cart, “Your turn” and “Sold” states, two cart variants.</p>
-  </div>
-
-  <h2><span class="lru">Action</span><span class="len">Action</span></h2>
-  <h3><span class="lru">1. Ресёрч и погружение в сеттинг</span><span class="len">1. Research and setting immersion</span></h3>
-  <div class="lru"><p>Перед проектированием исследовала внутриигровые магазины и собирала релевантные экраны в каталогах <a href="https://interfaceingame.com/" target="_blank" rel="noopener">Interface In Game</a>: изучала размещение ассортимента, карточки товаров, корзины и способы интеграции магазина в игровой мир.</p><p>Параллельно изучила визуальный язык позднего СССР и 90-х, референсы игр детства и музыку в близкой эстетике. Сделала ставку на материальность: старое дерево и металл, бумажные ценники, настоящую выкладку товаров и продавщицу с характером.</p><p>Вместо нейтрального оверлея интерфейс стал частью игрового мира — киоском, к которому игрок действительно подходит между матчами.</p></div>
-  <div class="len"><p>Before designing, I researched in-game shops and collected relevant screens from <a href="https://interfaceingame.com/" target="_blank" rel="noopener">Interface In Game</a>: assortment layouts, item cards, carts and ways to embed a shop into the game world.</p><p>In parallel I studied the visual language of the late USSR and the 90s, childhood game references and music in a close aesthetic. I bet on materiality: old wood and metal, paper price tags, real product display and a shopkeeper with character.</p><p>Instead of a neutral overlay, the interface became part of the game world — a kiosk the player genuinely walks up to between matches.</p></div>
-  <figure class="case-fig"><img src="img/bashnya-02.jpg" alt="Референсы"><figcaption><span class="lru">Референсы</span><span class="len">References</span></figcaption></figure>
-  <h3><span class="lru">2. Иерархия товаров</span><span class="len">2. Item hierarchy</span></h3>
-  <div class="lru"><p>Разработала иконки для аптечек, боеприпасов и еды. Размер предмета на витрине показывает его тир: крупный объект считывается как более ценный без дополнительной подписи.</p><p>Отступила от ТЗ и убрала названия с ценников: уникальные силуэты уже различают товары, а на небольших бирках важнее оставить цену. Название, описание и эффект перенесла в карточку товара.</p></div>
-  <div class="len"><p>Designed icons for medkits, ammo and food. Item size on the showcase signals its tier: a large object reads as more valuable with no extra label.</p><p>I deviated from the brief and removed names from price tags: unique silhouettes already distinguish items, and on small tags price matters more. Name, description and effect moved into the item card.</p></div>
-  <figure class="case-fig"><img src="img/bashnya-03.jpg" alt="Icon pack"><figcaption>Icon pack</figcaption></figure>
-  <h3><span class="lru">3. Два сценария корзины</span><span class="len">3. Two cart scenarios</span></h3>
-  <div class="lru"><p>Подготовила два варианта под разные модели игровой экономики:</p><ol><li><b>Визуальный</b> — крупные предметы складываются в выражение с итоговой стоимостью. Подходит для 2–4 покупок и лучше поддерживает погружение.</li><li><b>Списочный</b> — компактная сетка с иконкой, названием и ценой. Масштабируется для длинной корзины и массовых закупок на поздних этапах игры.</li></ol><p>Так выбор UI можно привязать к реальному балансу игры, а не принимать только по визуальному вкусу.</p></div>
-  <div class="len"><p>Prepared two variants for different game-economy models:</p><ol><li><b>Visual</b> — large items compose an expression with the total cost. Fits 2–4 purchases and supports immersion better.</li><li><b>List</b> — compact grid with icon, name and price. Scales for long carts and bulk late-game shopping.</li></ol><p>This way the UI choice can follow the real game balance, not just visual taste.</p></div>
-  <figure class="case-fig"><img src="img/bashnya-04.jpg" alt="Корзина, вариант 1"></figure>
-  <figure class="case-fig"><img src="img/bashnya-05.jpg" alt="Корзина, вариант 2"></figure>
-  <h3><span class="lru">4. Состояния и конкуренция за товар</span><span class="len">4. States and item contention</span></h3>
-  <div class="lru"><p>Проработала ожидание и активную очередь, карточку товара, добавление и удаление из корзины. Для общего ограниченного ассортимента предусмотрела состояние <b>«Продано»</b>: товар блокируется на витрине и помечается в корзине, если его успел купить другой игрок.</p></div>
-  <div class="len"><p>Designed waiting and active queue, item card, add/remove from cart. For the shared limited stock, added a <b>“Sold”</b> state: the item locks on the showcase and gets flagged in the cart if another player bought it first.</p></div>
-  <figure class="case-fig"><img src="img/bashnya-06.jpg" alt="Твоя очередь"><figcaption><span class="lru">Твоя очередь</span><span class="len">Your turn</span></figcaption></figure>
-  <figure class="case-fig"><img src="img/bashnya-07.jpg" alt="Карточка товара"><figcaption><span class="lru">Карточка товара</span><span class="len">Item card</span></figcaption></figure>
-  <figure class="case-fig"><img src="img/bashnya-08.jpg" alt="Продано"><figcaption><span class="lru">Продано</span><span class="len">Sold</span></figcaption></figure>
-
-  <h2><span class="lru">Result</span><span class="len">Result</span></h2>
-  <div class="lru">
-    <p>Подготовила готовый визуальный макет киоска: основной экран, два варианта корзины и состояния ключевых multiplayer-сценариев.</p>
-    <div class="tbl-wrap"><table class="case-table">
-      <tr><th></th><th></th></tr>
-      <tr><td>Для игрока</td><td>Очередь и таймер видны постоянно; корзину можно собрать заранее, а активные действия доступны только в свой ход</td></tr>
-      <tr><td>Для геймдизайна</td><td>Два формата корзины позволяют выбрать решение под лимиты валюты и объём покупок</td></tr>
-      <tr><td>Для мира игры</td><td>UI не перекрывает сеттинг, а становится его частью через витрину, материалы, персонажа и ценники</td></tr>
-      <tr><td>Для разработки</td><td>Зафиксированы состояния ожидания, активного хода, карточки товара и уже проданного предмета</td></tr>
-      <tr><td>Метрики</td><td>Создала UI KIT, который помог ускорить создание фичей с 7 дней до <b>3 дней</b>. Выстроила процессы по дизайну, сократив T2D с 5 дней до <b>2 дней</b></td></tr>
-    </table></div>
-    <h3>Фидбек работодателя</h3>
-    <p>Работодатель подтвердил ключевые решения кейса:</p>
-    <ul>
-      <li>отметил <b>оригинальный визуальный стиль</b> и историю, которая стоит за дизайном;</li>
-      <li>отдельно выделил правильное понимание задачи и решение использовать <b>две сетки — для витрины и корзины</b>;</li>
-      <li>подтвердил, что очередь получила верный визуальный приоритет и занимает достаточную часть экрана;</li>
-      <li>положительно оценил сопроводительные комментарии — решения были не только показаны, но и аргументированы.</li>
-    </ul>
-  </div>
-  <div class="len">
-    <p>Delivered a finished visual kiosk mockup: main screen, two cart variants and states for the key multiplayer scenarios.</p>
-    <div class="tbl-wrap"><table class="case-table">
-      <tr><th></th><th></th></tr>
-      <tr><td>For players</td><td>Queue and timer always visible; cart can be pre-built, active actions only on your turn</td></tr>
-      <tr><td>For game design</td><td>Two cart formats let the team pick per currency limits and purchase volume</td></tr>
-      <tr><td>For the game world</td><td>UI doesn't cover the setting — it becomes part of it via showcase, materials, character and price tags</td></tr>
-      <tr><td>For developers</td><td>Locked states: waiting, active turn, item card, sold item</td></tr>
-      <tr><td>Metrics</td><td>Built a UI kit that sped feature delivery from 7 days to <b>3 days</b>. Streamlined design processes, cutting T2D from 5 days to <b>2 days</b></td></tr>
-    </table></div>
-    <h3>Employer feedback</h3>
-    <p>The employer confirmed the case's key decisions:</p>
-    <ul>
-      <li>praised the <b>original visual style</b> and the story behind the design;</li>
-      <li>singled out the correct grasp of the task and the decision to use <b>two grids — showcase and cart</b>;</li>
-      <li>confirmed the queue got the right visual priority and enough screen space;</li>
-      <li>valued the accompanying rationale — decisions were not just shown but argued.</li>
-    </ul>
-  </div>
-
-  <nav class="case-nav">
-    <a href="../index.html#concepts">← <span class="lru">Все концепты</span><span class="len">All concepts</span></a>
-    <a href="forrest.html">Forrest →</a>
+<div class="case-hero"><h1 class="case-title"><span class="lru">Башня: покупки между игровыми уровнями</span><span class="len">Bashnya: shopping between game levels</span></h1><p class="case-sub"><span class="lru">Спроектировала киоск для multiplayer roguelike: витрину, очередь, корзину и состояния покупки. Интерфейс встроен в мир альтернативных 90-х.</span><span class="len">I designed a multiplayer roguelike kiosk: the showcase, queue, cart and purchase states. The interface is part of an alternate-1990s game world.</span></p></div>
+<section class="case-section" id="context"><h2><span class="lru">Десять секунд на покупку</span><span class="len">Ten seconds to buy</span></h2>
+<div class="case-prose"><p><span class="lru">Между уровнями игроки сдают металлолом и покупают аптечки, патроны и еду. Ассортимент общий и ограниченный, покупки идут по очереди. На свой ход игрок получает десять секунд.</span><span class="len">Between levels, players trade scrap metal and buy medkits, ammunition and food. Stock is shared and limited, and purchases happen in turn. Each player has ten seconds.</span></p></div>
+<aside class="case-note"><p><span class="lru">Корзину можно собрать во время ожидания. Покупка и сдача лома доступны только в свой ход; очередь и таймер должны оставаться видимыми.</span><span class="len">Players can prepare their cart while waiting. Buying and selling scrap are only available on their turn; the queue and timer must remain visible.</span></p></aside>
+<figure class="case-fig"><img src="img/bashnya-01.jpg" alt="Киоск — ожидание очереди" loading="lazy"><figcaption><span class="lru">Основной экран киоска в ожидании очереди</span><span class="len">The main kiosk screen while waiting for a turn</span></figcaption></figure>
+</section>
+<section class="case-section" id="world"><h2><span class="lru">Киоск как часть игрового мира</span><span class="len">A kiosk within the game world</span></h2>
+<div class="case-prose"><p><span class="lru">Изучила игровые магазины в <a href="https://interfaceingame.com/" target="_blank" rel="noopener">Interface In Game</a> и визуальные материалы позднего СССР. Выбрала старое дерево, металл, бумажные ценники и персонажа продавщицы. Подготовила AI-набор иконок и персонажа.</span><span class="len">I reviewed game shops in <a href="https://interfaceingame.com/" target="_blank" rel="noopener">Interface In Game</a> and late-Soviet visual references. I chose aged wood, metal, paper price tags and a shopkeeper character, and prepared an AI icon set and character.</span></p></div>
+<figure class="case-fig"><img src="img/bashnya-02.jpg" alt="Референсы" loading="lazy"><figcaption><span class="lru">Референсы материалов, витрин и игрового интерфейса</span><span class="len">References for materials, showcases and game interfaces</span></figcaption></figure>
+<div class="case-prose"><p><span class="lru">Размер предмета на витрине показывает его тир. С ценников убрала названия: силуэты различают товары, а на небольших бирках остаётся цена. Название, описание и эффект перенесла в карточку товара.</span><span class="len">Item size on the showcase signals its tier. I removed names from the price tags: silhouettes distinguish the items, leaving room for prices on the small tags. Names, descriptions and effects live in the item card.</span></p></div>
+<figure class="case-fig"><img src="img/bashnya-03.jpg" alt="Icon pack" loading="lazy"><figcaption><span class="lru">Набор предметов для витрины</span><span class="len">Item set for the showcase</span></figcaption></figure>
+</section>
+<section class="case-section" id="carts"><h2><span class="lru">Две корзины для разного объёма покупок</span><span class="len">Two carts for different purchase volumes</span></h2>
+<div class="case-columns"><div><h3><span class="lru">Визуальная корзина</span><span class="len">Visual cart</span></h3><p><span class="lru">Крупные предметы складываются в выражение с итоговой стоимостью. Вариант рассчитан на две–четыре покупки и сохраняет акцент на самих предметах.</span><span class="len">Large items form an expression with the total cost. This version is designed for two to four purchases and keeps the items themselves prominent.</span></p></div><div><h3><span class="lru">Списочная корзина</span><span class="len">List cart</span></h3><p><span class="lru">Компактная сетка с иконкой, названием и ценой. Подходит для длинного списка и массовых закупок на поздних этапах игры.</span><span class="len">A compact grid with an icon, name and price. It accommodates longer lists and bulk purchases in later game stages.</span></p></div></div>
+<figure class="case-fig"><img src="img/bashnya-04.jpg" alt="Корзина, вариант 1" loading="lazy"><figcaption><span class="lru">Визуальная корзина с крупными предметами</span><span class="len">Visual cart with large items</span></figcaption></figure>
+<figure class="case-fig"><img src="img/bashnya-05.jpg" alt="Корзина, вариант 2" loading="lazy"><figcaption><span class="lru">Списочная корзина для большего числа товаров</span><span class="len">List cart for a larger number of items</span></figcaption></figure>
+<div class="case-prose"><p><span class="lru">Оба варианта подготовила для выбора под экономику игры: лимиты валюты и количество покупок за ход.</span><span class="len">I prepared both versions for selection based on the game economy: currency limits and the number of purchases per turn.</span></p></div>
+</section>
+<section class="case-section" id="states"><h2><span class="lru">Что меняется во время очереди</span><span class="len">What changes during the queue</span></h2>
+<ul class="case-detail-grid"><li><div><h3><span class="lru">Свой ход</span><span class="len">Your turn</span></h3><p><span class="lru">Покупка и сдача лома становятся активными. Очередь и оставшееся время сохраняют визуальный приоритет.</span><span class="len">Buying and selling scrap become active. The queue and remaining time retain visual priority.</span></p></div></li><li><div><h3><span class="lru">Просмотр товара</span><span class="len">Inspecting an item</span></h3><p><span class="lru">Карточка показывает название, описание и эффект до добавления в корзину.</span><span class="len">The item card shows its name, description and effect before it is added to the cart.</span></p></div></li><li><div><h3><span class="lru">Товар уже купили</span><span class="len">An item has been sold</span></h3><p><span class="lru">Предмет блокируется на витрине и помечается в корзине, если его успел купить другой игрок.</span><span class="len">The item is locked on the showcase and marked in the cart if another player bought it first.</span></p></div></li></ul>
+<figure class="case-fig"><img src="img/bashnya-06.jpg" alt="Твоя очередь" loading="lazy"><figcaption><span class="lru">Состояние «Твоя очередь»</span><span class="len">The “Your turn” state</span></figcaption></figure>
+<figure class="case-fig"><img src="img/bashnya-07.jpg" alt="Карточка товара" loading="lazy"><figcaption><span class="lru">Карточка с подробностями товара</span><span class="len">An item card with product details</span></figcaption></figure>
+<figure class="case-fig"><img src="img/bashnya-08.jpg" alt="Продано" loading="lazy"><figcaption><span class="lru">Состояние «Продано» для общего ассортимента</span><span class="len">The “Sold” state for shared stock</span></figcaption></figure>
+</section>
+<section class="case-section" id="handoff"><h2><span class="lru">Макеты, UI kit и обратная связь</span><span class="len">Layouts, UI kit and feedback</span></h2>
+<div class="case-prose"><p><span class="lru">Подготовила основной экран, оба варианта корзины и состояния взаимодействия. В проекте зафиксированы показатели: разработка фич сократилась с 7 до 3 дней, передача дизайна в разработку с 5 до 2 дней. Для повторяющихся элементов собрала UI kit.</span><span class="len">I prepared the main screen, both cart versions and interaction states. The recorded project figures show feature development going from 7 to 3 days and design-to-development from 5 to 2 days. I built a UI kit for recurring elements.</span></p></div>
+<aside class="case-quote"><p><span class="lru">В обратной связи отдельно отметили, что у персонажа есть свой характер и история, а визуальный стиль поддерживает мир игры. Выделили две сетки для витрины и корзины: товары можно рассматривать, а покупки собирать отдельно. Очередь получила нужный приоритет на экране. Отметили и комментарии к макетам, в которых я объяснила выбор решений.</span><span class="len">The feedback highlighted the shopkeeper’s character and story, with a visual style that belongs to the game world. The separate showcase and cart grids also stood out: players can browse items and assemble purchases in distinct areas. The queue had the right priority on screen. The accompanying comments were also appreciated for explaining the reasoning behind the layouts.</span></p></aside>
+</section>
+<nav class="case-nav">
+    <a href="forrest.html" data-direction="next">Forrest →</a>
   </nav>

@@ -4,10 +4,18 @@ import { fileURLToPath } from 'node:url';
 import { pageEntries } from './src/pages.js';
 
 const initializeLanguage = `try {
-  const language = localStorage.getItem('vm-v2-lang') === 'en' ? 'en' : 'ru';
+  const stored = localStorage.getItem('vm-v2-lang');
+  const browserLanguage = (navigator.language || '').toLowerCase();
+  const language = stored === 'ru' || stored === 'en'
+    ? stored
+    : browserLanguage.startsWith('ru') ? 'ru' : 'en';
   document.body.dataset.lang = language;
   document.documentElement.lang = language;
-} catch { /* Default markup remains Russian when storage is disabled. */ }`;
+} catch {
+  const language = (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+  document.body.dataset.lang = language;
+  document.documentElement.lang = language;
+}`;
 
 const metrikaId = 113753598;
 const initializeMetrika = `(function(m,e,t,r,i,k,a){

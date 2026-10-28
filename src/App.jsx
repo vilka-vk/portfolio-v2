@@ -7,11 +7,26 @@ import projects from './content/projects.json';
 import homeContent from './content/home.html?raw';
 import { ContentImage, parseContent } from './content-renderer.jsx';
 import { getLanguage, getServerLanguage, setLanguage, subscribeLanguage } from './language-store.js';
+import { prepareCase, caseLinks } from './case-layout.js';
+import { CaseResults } from './CaseResults.jsx';
 
 const caseContent = import.meta.glob(['./content/*.html', '!./content/home.html'], { query: '?raw', import: 'default' });
 const Language = createContext(null);
-const cv = '/Senior_Product_Designer_Violetta_Morozova_Eng.pdf';
+const cvByLanguage = {
+  ru: '/Senior_Product_Designer_Violetta_Morozova_Rus.pdf',
+  en: '/Senior_Product_Designer_Violetta_Morozova_Eng.pdf',
+};
 const linkedIn = 'https://linkedin.com/in/violetta-morozova';
+const descriptions = {
+  forrest: ['Система управления рестораном', 'Restaurant management system'],
+  gutstuff: ['Приложение для здоровья кишечника', 'Gut health app'],
+  saymore: ['Платформа поддержки и общения', 'Community and support platform'],
+  oprosso: ['Платформа для исследований', 'Research platform'],
+  bashnya: ['Интерфейс игрового киоска', 'In-game kiosk interface'],
+  kant: ['Образовательный сайт', 'Education website'],
+  taromant: ['Колесо фортуны в Telegram', 'Telegram fortune wheel'],
+  trinoray: ['Исследование поискового интерфейса', 'Search interface research'],
+};
 
 function usePageMotion(ready = true) {
   const rootRef = useRef(null);
@@ -28,6 +43,7 @@ function Text({ ru, en }) {
 
 function Header({ isCase }) {
   const { language, setLanguage } = useContext(Language);
+  const cv = cvByLanguage[language];
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 8);
@@ -57,6 +73,8 @@ function Header({ isCase }) {
 }
 
 function Footer() {
+  const { language } = useContext(Language);
+  const cv = cvByLanguage[language];
   return <footer className="site-footer"><div className="page-shell footer-inner">
     <div className="footer-bottom"><span>© 2026 Violetta Morozova</span><div>
       <a href={cv} download>CV ↗</a>
@@ -72,7 +90,7 @@ function ProjectCard({ project }) {
   const linkProps = project.href ? { href: project.href, ...(project.external ? { target: '_blank', rel: 'noopener' } : {}), 'aria-label': `${project.title} — ${language === 'en' ? 'view project' : 'открыть проект'}` } : { tabIndex: 0, 'aria-label': project.title };
   return <Tag className={`project-card${project.href ? '' : ' project-card-static'}`} {...linkProps}>
     <div className="project-meta"><ul className="project-labels">{project.labels.map(label => <li key={label}>{label}</li>)}</ul></div>
-    <div className="project-title"><h3>{project.title}</h3></div>
+    <div className="project-title"><h3>{project.title}</h3>{project.category === 'cases' && <p><Text ru={descriptions[project.id][0]} en={descriptions[project.id][1]} /></p>}</div>
     <div className="project-media"><ContentImage src={`/${project.image}`} alt={project.alt} /></div>
     <div className="project-metrics"><ul>{project.metricElements.map((metric, index) => <li key={index}>{index ? <div>{metric}</div> : metric}</li>)}</ul>{project.href && <strong className="metrics-arrow" aria-hidden="true">↗</strong>}</div>
   </Tag>;
@@ -134,10 +152,18 @@ const Home = memo(function Home() {
 });
 
 function CaseStudy({ slug, initialContent }) {
+  const { language } = useContext(Language);
   const [content, setContent] = useState(initialContent || '');
   const [failed, setFailed] = useState(false);
   const rootRef = usePageMotion(Boolean(content));
-  const renderedContent = useMemo(() => content ? parseContent(content, true) : null, [content]);
+  const prepared = useMemo(() => prepareCase(content), [content]);
+  const links = useMemo(() => caseLinks(prepared), [prepared]);
+  const navigation = prepared.match(/<nav class="case-nav"[\s\S]*?<\/nav>/)?.[0] || '';
+  const renderedContent = useMemo(() => prepared ? parseContent(prepared.replace(/<nav class="case-nav"[\s\S]*?<\/nav>/, ''), true) : null, [prepared]);
+  const project = projectGroups.cases.concat(projectGroups.concepts).find(item => item.id === slug);
+  const contentNodes = React.Children.toArray(renderedContent);
+  const heroIndex = contentNodes.findIndex(node => node.props?.className === 'case-hero');
+  const results = content && project && <CaseResults project={project} />;
   useEffect(() => {
     if (initialContent) return;
     let active = true;
@@ -147,7 +173,17 @@ function CaseStudy({ slug, initialContent }) {
     return () => { active = false; };
   }, [slug, initialContent]);
   if (failed) return <main className="narrow case" id="top"><h1><Text ru="Не удалось открыть кейс" en="Unable to load this case" /></h1><a href="/index.html#cases"><Text ru="Все кейсы" en="All cases" /></a></main>;
-  return <main className="narrow case" id="top" tabIndex={-1} ref={rootRef} aria-busy={!content}>{renderedContent || <p role="status"><Text ru="Загрузка кейса…" en="Loading case…" /></p>}</main>;
+  return <main className="narrow case" id="top" tabIndex={-1} ref={rootRef} aria-busy={!content}>
+    {content && <aside className="case-outline">
+      <a className="case-back" href={`/index.html#${project?.category === 'concepts' ? 'concepts' : 'cases'}`}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m9 4-5 5 5 5M4 9h10a6 6 0 0 1 0 12h-2" /></svg>
+        {project?.category === 'concepts' ? <Text ru="Все концепты" en="All concepts" /> : <Text ru="Все продукты" en="All products" />}
+      </a>
+      <nav aria-label={language === 'ru' ? 'Разделы кейса' : 'Case sections'}><a href="#top"><Text ru="Начало" en="Overview" /></a>{links.map(link => <a key={link.id} href={`#${link.id}`}>{parse(link.label)}</a>)}</nav>
+    </aside>}
+    <div className="case-document">{renderedContent ? contentNodes.map((node,index) => <React.Fragment key={index}>{node}{index === heroIndex && results}</React.Fragment>) : <p role="status"><Text ru="Загрузка кейса…" en="Loading case…" /></p>}</div>
+    {navigation && parse(navigation)}
+  </main>;
 }
 
 export function App({ pathname, initialContent }) {
