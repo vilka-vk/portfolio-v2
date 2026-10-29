@@ -2,6 +2,7 @@ import React, { createContext, memo, useContext, useEffect, useLayoutEffect, use
 import parse, { domToReact } from 'html-react-parser';
 import { BorderBeam } from 'border-beam';
 import { Skills } from './Skills.jsx';
+import { ProjectGallery } from './ProjectGallery.jsx';
 import { createPageMotion } from './page-motion.js';
 import projects from './content/projects.json';
 import homeContent from './content/home.html?raw';
@@ -17,16 +18,6 @@ const cvByLanguage = {
   en: '/Senior_Product_Designer_Violetta_Morozova_Eng.pdf',
 };
 const linkedIn = 'https://linkedin.com/in/violetta-morozova';
-const descriptions = {
-  forrest: ['Система управления рестораном', 'Restaurant management system'],
-  gutstuff: ['Приложение для здоровья кишечника', 'Gut health app'],
-  saymore: ['Платформа поддержки и общения', 'Community and support platform'],
-  oprosso: ['Платформа для исследований', 'Research platform'],
-  bashnya: ['Интерфейс игрового киоска', 'In-game kiosk interface'],
-  kant: ['Образовательный сайт', 'Education website'],
-  taromant: ['Колесо фортуны в Telegram', 'Telegram fortune wheel'],
-  trinoray: ['Исследование поискового интерфейса', 'Search interface research'],
-};
 
 function usePageMotion(ready = true) {
   const rootRef = useRef(null);
@@ -59,7 +50,7 @@ function Header({ isCase }) {
     </a>
     <nav className="header-nav" aria-label={language === 'en' ? 'Main navigation' : 'Основная навигация'}>
       <a href={sectionLink('cases')}><Text ru="Кейсы" en="Cases" /></a>
-      <a href={sectionLink('concepts')}><Text ru="Концепты" en="Concepts" /></a>
+      <a href={sectionLink('concepts')}><Text ru="Лаборатория" en="Laboratory" /></a>
       <a href={sectionLink('experience')}><Text ru="Опыт" en="Experience" /></a>
     </nav>
     <div className="header-actions">
@@ -84,29 +75,17 @@ function Footer() {
   </div></footer>;
 }
 
-function ProjectCard({ project }) {
-  const { language } = useContext(Language);
-  const Tag = project.href ? 'a' : 'article';
-  const linkProps = project.href ? { href: project.href, ...(project.external ? { target: '_blank', rel: 'noopener' } : {}), 'aria-label': `${project.title} — ${language === 'en' ? 'view project' : 'открыть проект'}` } : { tabIndex: 0, 'aria-label': project.title };
-  return <Tag className={`project-card${project.href ? '' : ' project-card-static'}`} {...linkProps}>
-    <div className="project-meta"><ul className="project-labels">{project.labels.map(label => <li key={label}>{label}</li>)}</ul></div>
-    <div className="project-title"><h3>{project.title}</h3>{project.category === 'cases' && <p><Text ru={descriptions[project.id][0]} en={descriptions[project.id][1]} /></p>}</div>
-    <div className="project-media"><ContentImage src={`/${project.image}`} alt={project.alt} /></div>
-    <div className="project-metrics"><ul>{project.metricElements.map((metric, index) => <li key={index}>{index ? <div>{metric}</div> : metric}</li>)}</ul>{project.href && <strong className="metrics-arrow" aria-hidden="true">↗</strong>}</div>
-  </Tag>;
-}
-
 const projectGroups = projects.reduce((groups, project) => {
   groups[project.category].push({ ...project, metricElements: project.metrics.map(metric => parse(metric)) });
   return groups;
 }, { cases: [], concepts: [] });
 
-function ForestBeam({ children, className, hoverOnly = false }) {
+function ContactBeam({ children, className, hoverOnly = false }) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const highlighted = hovered || focused;
   return <BorderBeam
-    className={`forest-beam ${className}`} size="md" colorVariant="forest"
+    className={`contact-color-beam ${className}`} size="md" colorVariant="colorful"
     theme={highlighted ? 'dark' : 'light'} active={!hoverOnly || highlighted}
     borderRadius={1000} duration={3} glowSize={5}
     brightness={highlighted ? 2.2 : 1.5} saturation={highlighted ? 2 : 1.8}
@@ -123,7 +102,7 @@ function ForestBeam({ children, className, hoverOnly = false }) {
         mask:none;
         inset:-12px;
         padding:0;
-        background:conic-gradient(from var(--beam-angle-{id}),transparent 0%,rgba(57,255,117,.15) 12%,rgba(57,255,117,.65) 30%,#39ff75 48%,#00eeb0 68%,rgba(0,238,176,.6) 82%,rgba(0,238,176,.1) 95%,transparent 100%);
+        background:conic-gradient(from var(--beam-angle-{id}),transparent 0%,rgba(255,50,100,.15) 12%,rgba(40,140,255,.65) 30%,#32c850 48%,#ffa01e 68%,rgba(180,40,240,.6) 82%,rgba(240,50,180,.1) 95%,transparent 100%);
         filter:blur(28px) saturate(1.8);
       }
       [data-beam="{id}"][data-active] [data-beam-bloom],
@@ -135,19 +114,17 @@ function ForestBeam({ children, className, hoverOnly = false }) {
 }
 
 const Home = memo(function Home() {
+  const { language } = useContext(Language);
   const rootRef = usePageMotion();
   const content = useMemo(() => parse(homeContent, { replace(node) {
     if (node.name === 'a' && node.attribs?.class === 'round-link') {
-      return <ForestBeam className="contact-beam">
+      return <ContactBeam className="contact-beam">
         <a className="round-link" href={node.attribs.href}>{domToReact(node.children)}</a>
-      </ForestBeam>;
+      </ContactBeam>;
     }
     if (node.attribs?.['data-skills'] !== undefined) return <Skills />;
-    const group = node.attribs?.['data-project-grid'];
-    if (!group) return;
-    const groupProjects = projectGroups[group];
-    return <div className="case-grid">{groupProjects.map(project => <ProjectCard key={project.id} project={project} />)}</div>;
-  } }), []);
+    if (node.attribs?.['data-project-gallery'] !== undefined) return <ProjectGallery groups={projectGroups} language={language} />;
+  } }), [language]);
   return <main id="top" tabIndex={-1} ref={rootRef}>{content}</main>;
 });
 
@@ -177,7 +154,7 @@ function CaseStudy({ slug, initialContent }) {
     {content && <aside className="case-outline">
       <a className="case-back" href={`/index.html#${project?.category === 'concepts' ? 'concepts' : 'cases'}`}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m9 4-5 5 5 5M4 9h10a6 6 0 0 1 0 12h-2" /></svg>
-        {project?.category === 'concepts' ? <Text ru="Все концепты" en="All concepts" /> : <Text ru="Все продукты" en="All products" />}
+        {project?.category === 'concepts' ? <Text ru="В Лабораторию" en="Back to the Laboratory" /> : <Text ru="Все продукты" en="All products" />}
       </a>
       <nav aria-label={language === 'ru' ? 'Разделы кейса' : 'Case sections'}><a href="#top"><Text ru="Начало" en="Overview" /></a>{links.map(link => <a key={link.id} href={`#${link.id}`}>{parse(link.label)}</a>)}</nav>
     </aside>}

@@ -9,6 +9,7 @@ export function caseLinks(content) {
 }
 
 const outlineLabels = {
+  hypotheses: ['Гипотезы', 'Hypotheses'],
   context: ['Контекст', 'Context'], orders: ['Заказы', 'Orders'],
   reservations: ['Бронирования', 'Reservations'], handoff: ['Передача и итог', 'Handoff and outcome'],
   research: ['Исследование', 'Research'], diary: ['Опрос и дневник', 'Quiz and diary'],
