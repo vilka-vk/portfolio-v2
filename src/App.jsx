@@ -88,7 +88,7 @@ function ContactBeam({ children, className, hoverOnly = false }) {
     className={`contact-color-beam ${className}`} size="md" colorVariant="colorful"
     theme={highlighted ? 'dark' : 'light'} active={!hoverOnly || highlighted}
     borderRadius={1000} duration={3} glowSize={5}
-    brightness={highlighted ? 2.2 : 1.5} saturation={highlighted ? 2 : 1.8}
+    brightness={highlighted ? 1.8 : 1.3} saturation={highlighted ? 2 : 1.8}
     onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
     onFocus={() => setFocused(true)} onBlur={event => {
       if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
@@ -100,14 +100,14 @@ function ContactBeam({ children, className, hoverOnly = false }) {
         clip-path:none;
         -webkit-mask:none;
         mask:none;
-        inset:-12px;
+        inset:-4px;
         padding:0;
         background:conic-gradient(from var(--beam-angle-{id}),transparent 0%,rgba(255,50,100,.15) 12%,rgba(40,140,255,.65) 30%,#32c850 48%,#ffa01e 68%,rgba(180,40,240,.6) 82%,rgba(240,50,180,.1) 95%,transparent 100%);
-        filter:blur(28px) saturate(1.8);
+        filter:blur(16px) saturate(1.8);
       }
       [data-beam="{id}"][data-active] [data-beam-bloom],
       [data-beam="{id}"][data-fading] [data-beam-bloom]{
-        opacity:calc(var(--beam-opacity-{id}) * ${highlighted ? 1 : 0.8});
+        opacity:calc(var(--beam-opacity-{id}) * ${highlighted ? 0.8 : 0.6});
       }
     `}
   >{children}</BorderBeam>;
