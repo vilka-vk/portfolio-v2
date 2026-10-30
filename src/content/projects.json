@@ -4,7 +4,7 @@
     "title": "Forrest",
     "href": "cases/forrest.html",
     "external": false,
-    "image": "img/work-forrest.jpg",
+    "image": "img/work-forrest.webp",
     "alt": "Интерфейсы Forrest",
     "loading": "eager",
     "labels": [
@@ -25,7 +25,7 @@
     "title": "The Gut Stuff",
     "href": "cases/gutstuff.html",
     "external": false,
-    "image": "img/work-gutstuff.jpg",
+    "image": "img/work-gutstuff.webp",
     "alt": "Мобильное приложение The Gut Stuff",
     "loading": "lazy",
     "labels": [
@@ -45,7 +45,7 @@
     "title": "SayMore",
     "href": "cases/saymore.html",
     "external": false,
-    "image": "img/work-saymore.jpg",
+    "image": "img/work-saymore.webp",
     "alt": "Платформа SayMore",
     "loading": "lazy",
     "labels": [
@@ -65,7 +65,7 @@
     "title": "Oprosso",
     "href": null,
     "external": false,
-    "image": "img/work-oprosso.jpg",
+    "image": "img/work-oprosso.webp",
     "alt": "Дашборд Oprosso",
     "loading": "lazy",
     "labels": [
@@ -86,7 +86,7 @@
     "title": "Bashnya",
     "href": "cases/bashnya.html",
     "external": false,
-    "image": "img/work-bashnya.jpg",
+    "image": "img/work-bashnya.webp",
     "alt": "Игровой интерфейс Bashnya",
     "loading": "lazy",
     "labels": [
@@ -106,7 +106,7 @@
     "title": "Kant",
     "href": "https://antimilitarism.education/",
     "external": true,
-    "image": "img/work-kant.jpg",
+    "image": "img/work-kant.webp",
     "alt": "Образовательный сайт Kant",
     "loading": "lazy",
     "labels": [
@@ -127,7 +127,7 @@
     "title": "Taromant",
     "href": "cases/taromant.html",
     "external": false,
-    "image": "img/work-taromant.jpg",
+    "image": "img/work-taromant.webp",
     "alt": "Колесо фортуны Taromant",
     "loading": "lazy",
     "labels": [
@@ -146,7 +146,7 @@
     "title": "Trinoray",
     "href": "cases/trinoray.html",
     "external": false,
-    "image": "img/work-trinoray.jpg",
+    "image": "img/work-trinoray.webp",
     "alt": "Поисковый интерфейс Trinoray",
     "loading": "lazy",
     "labels": [

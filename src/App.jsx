@@ -1,6 +1,6 @@
 import React, { createContext, memo, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import parse, { domToReact } from 'html-react-parser';
-import { BorderBeam } from 'border-beam';
+import { MetalHeart, MetalText, useHeroMetal } from './HeroMetal.jsx';
 import { Skills } from './Skills.jsx';
 import { ProjectGallery } from './ProjectGallery.jsx';
 import { createPageMotion } from './page-motion.js';
@@ -44,7 +44,7 @@ function Header({ isCase }) {
   }, []);
   const sectionLink = id => `${isCase ? '/index.html' : ''}#${id}`;
   return <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-    <a className="identity" href={sectionLink('top')} aria-label="Violetta Morozova — на главную">
+    <a className="identity" href="/" aria-label="Violetta Morozova — на главную">
       <ContentImage src="/img/avatar.png" alt="Violetta Morozova" loading="eager" />
       <span><b>Violetta Morozova</b><small>Senior Product Designer</small></span>
     </a>
@@ -80,52 +80,28 @@ const projectGroups = projects.reduce((groups, project) => {
   return groups;
 }, { cases: [], concepts: [] });
 
-function ContactBeam({ children, className, hoverOnly = false }) {
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
-  const highlighted = hovered || focused;
-  return <BorderBeam
-    className={`contact-color-beam ${className}`} size="md" colorVariant="colorful"
-    theme={highlighted ? 'dark' : 'light'} active={!hoverOnly || highlighted}
-    borderRadius={1000} duration={3} glowSize={5}
-    brightness={highlighted ? 1.8 : 1.3} saturation={highlighted ? 2 : 1.8}
-    onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-    onFocus={() => setFocused(true)} onBlur={event => {
-      if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
-    }}
-    css={`
-      [data-beam="{id}"]{overflow:visible;isolation:isolate;--beam-stroke-opacity:0;--beam-inner-opacity:0}
-      [data-beam="{id}"] [data-beam-bloom]{
-        z-index:-1;
-        clip-path:none;
-        -webkit-mask:none;
-        mask:none;
-        inset:-4px;
-        padding:0;
-        background:conic-gradient(from var(--beam-angle-{id}),transparent 0%,rgba(255,50,100,.15) 12%,rgba(40,140,255,.65) 30%,#32c850 48%,#ffa01e 68%,rgba(180,40,240,.6) 82%,rgba(240,50,180,.1) 95%,transparent 100%);
-        filter:blur(16px) saturate(1.8);
-      }
-      [data-beam="{id}"][data-active] [data-beam-bloom],
-      [data-beam="{id}"][data-fading] [data-beam-bloom]{
-        opacity:calc(var(--beam-opacity-{id}) * ${highlighted ? 0.8 : 0.6});
-      }
-    `}
-  >{children}</BorderBeam>;
-}
-
 const Home = memo(function Home() {
   const { language } = useContext(Language);
   const rootRef = usePageMotion();
-  const content = useMemo(() => parse(homeContent, { replace(node) {
-    if (node.name === 'a' && node.attribs?.class === 'round-link') {
-      return <ContactBeam className="contact-beam">
-        <a className="round-link" href={node.attribs.href}>{domToReact(node.children)}</a>
-      </ContactBeam>;
-    }
-    if (node.attribs?.['data-skills'] !== undefined) return <Skills />;
-    if (node.attribs?.['data-project-gallery'] !== undefined) return <ProjectGallery groups={projectGroups} language={language} />;
-  } }), [language]);
-  return <main id="top" tabIndex={-1} ref={rootRef}>{content}</main>;
+  const metal = useHeroMetal(rootRef);
+  const content = useMemo(() => {
+    const options = { replace(node) {
+      if (node.name === 'a' && node.attribs?.class === 'round-link') {
+        return <div className="contact-metal">
+          <a className="round-link" href={node.attribs.href} target={node.attribs.target} rel={node.attribs.rel}>{domToReact(node.children)}</a>
+        </div>;
+      }
+      if (node.attribs?.['data-metal-heart'] !== undefined) return <MetalHeart metal={metal} />;
+      if (node.name === 'em' && node.attribs?.['data-metal-text'] !== undefined) {
+        const active = node.attribs['data-metal-text'] === language;
+        return <MetalText metal={active ? metal : null}>{node.children[0].data}</MetalText>;
+      }
+      if (node.attribs?.['data-skills'] !== undefined) return <Skills />;
+      if (node.attribs?.['data-project-gallery'] !== undefined) return <ProjectGallery groups={projectGroups} language={language} />;
+    } };
+    return parse(homeContent, options);
+  }, [language, metal]);
+  return <main id="top" tabIndex={-1} ref={rootRef} data-metal-paused={metal.paused ? 'true' : undefined}>{content}</main>;
 });
 
 function CaseStudy({ slug, initialContent }) {

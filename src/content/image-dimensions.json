@@ -16,24 +16,24 @@
     "height": 1448
   },
   "/img/work-forrest.jpg": {
-    "width": 1215,
-    "height": 1274
+    "width": 4488,
+    "height": 4480
   },
   "/img/work-gutstuff.jpg": {
-    "width": 1506,
-    "height": 1576
+    "width": 1103,
+    "height": 1426
   },
   "/img/work-kant.jpg": {
     "width": 1448,
     "height": 1086
   },
   "/img/work-oprosso.jpg": {
-    "width": 1086,
-    "height": 1448
+    "width": 1446,
+    "height": 1087
   },
   "/img/work-saymore.jpg": {
-    "width": 1009,
-    "height": 1078
+    "width": 6506,
+    "height": 6652
   },
   "/img/work-taromant.jpg": {
     "width": 1254,
@@ -274,5 +274,37 @@
   "/cases/img/trinoray-cover.jpg": {
     "width": 1600,
     "height": 986
+  },
+  "/img/work-forrest.webp": {
+    "width": 1800,
+    "height": 1797
+  },
+  "/img/work-gutstuff.webp": {
+    "width": 1103,
+    "height": 1426
+  },
+  "/img/work-saymore.webp": {
+    "width": 1760,
+    "height": 1800
+  },
+  "/img/work-oprosso.webp": {
+    "width": 1446,
+    "height": 1087
+  },
+  "/img/work-bashnya.webp": {
+    "width": 1086,
+    "height": 1448
+  },
+  "/img/work-kant.webp": {
+    "width": 1448,
+    "height": 1086
+  },
+  "/img/work-taromant.webp": {
+    "width": 1254,
+    "height": 1363
+  },
+  "/img/work-trinoray.webp": {
+    "width": 1350,
+    "height": 1482
   }
 }

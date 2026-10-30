@@ -35,11 +35,13 @@ Run `npm run typography` after changing editorial copy, project metrics or skill
 - `src/main.jsx`: browser entry; hydrates pre-rendered HTML in production and mounts React in development.
 - `src/App.jsx`: shared Header, Footer, ProjectCard, Home and CaseStudy components and scoped scroll effects.
 - `src/language-store.js`: cached language preference, storage fallback and cross-tab synchronization.
+- `src/HeroMetal.jsx`: client-loaded Metal FX masks for the heading text and status heart. Effects pause offscreen and in hidden tabs; reduced motion, forced colors and missing WebGL2 retain the static content. The contact button has a static translucent silver finish over a coral/pink CSS base matching the skills halo, with no border, shader, cursor effects or animation.
 - `src/Skills.jsx`: bilingual skills grouped by discipline.
 - `src/page-motion.js`: GSAP opacity/blur section reveals, hash entry and history restoration; respects reduced motion and cleans up animations/listeners on unmount.
 - `src/content-renderer.jsx`: cached editorial rendering support and image dimensions/lazy loading.
 - `src/pages.js`: shared page-entry manifest for Vite and pre-rendering.
 - `src/content/projects.json`: explicit card categories, labels, metrics, links and images.
+- Gallery covers use WebP copies at their original aspect ratio, up to 1800 px on the longer side. Original `img/work-*.jpg` source files remain available; gallery transitions animate only transform/opacity to avoid filtering large image layers.
 - `src/content/image-dimensions.json`: intrinsic raster-image dimensions; update this metadata when replacing images.
 - `src/content/*.html`: rich bilingual editorial content converted into React elements with html-react-parser; cases load per page.
 - `styles.css`: shared responsive styles.
