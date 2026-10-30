@@ -32,7 +32,7 @@ function Text({ ru, en }) {
   return <><span className="lru">{ru}</span><span className="len">{en}</span></>;
 }
 
-function Header({ isCase }) {
+function Header() {
   const { language, setLanguage } = useContext(Language);
   const cv = cvByLanguage[language];
   const [scrolled, setScrolled] = useState(false);
@@ -42,17 +42,11 @@ function Header({ isCase }) {
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
-  const sectionLink = id => `${isCase ? '/index.html' : ''}#${id}`;
   return <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
     <a className="identity" href="/" aria-label="Violetta Morozova — на главную">
       <ContentImage src="/img/avatar.png" alt="Violetta Morozova" loading="eager" />
       <span><b>Violetta Morozova</b><small>Senior Product Designer</small></span>
     </a>
-    <nav className="header-nav" aria-label={language === 'en' ? 'Main navigation' : 'Основная навигация'}>
-      <a href={sectionLink('cases')}><Text ru="Кейсы" en="Cases" /></a>
-      <a href={sectionLink('concepts')}><Text ru="Лаборатория" en="Laboratory" /></a>
-      <a href={sectionLink('experience')}><Text ru="Опыт" en="Experience" /></a>
-    </nav>
     <div className="header-actions">
       <div className="lang-switch" role="group" aria-label={language === 'en' ? 'Select language' : 'Выбрать язык'}>
         {['ru', 'en'].map(value => <button key={value} type="button" className={language === value ? 'active' : ''} aria-pressed={language === value} onClick={() => setLanguage(value)}>{value.toUpperCase()}</button>)}
@@ -149,7 +143,7 @@ export function App({ pathname, initialContent }) {
   }, [language]);
   return <Language.Provider value={languageContext}>
     <a className="skip-link" href="#top"><Text ru="Перейти к содержимому" en="Skip to content" /></a>
-    <Header isCase={Boolean(slug)} />
+    <Header />
     {slug ? <CaseStudy slug={slug} initialContent={initialContent} /> : <Home />}
     <Footer />
   </Language.Provider>;
