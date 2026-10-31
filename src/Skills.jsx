@@ -32,7 +32,6 @@ export function Skills() {
   return <section className="skills-section page-shell" aria-labelledby="skills-heading">
     <div className="section-heading">
       <h2 id="skills-heading"><Copy value={["Навыки и инструменты", 'Skills & tools']} /></h2>
-      <p className="eyebrow">04 / <Copy value={['Компетенции', 'Expertise']} /></p>
     </div>
     <div className="expertise-layout">
       <div className="expertise-feature" aria-labelledby="product-skills-heading">

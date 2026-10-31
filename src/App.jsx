@@ -70,7 +70,7 @@ function Footer() {
 }
 
 const projectGroups = projects.reduce((groups, project) => {
-  groups[project.category].push({ ...project, metricElements: project.metrics.map(metric => parse(metric)) });
+  groups[project.category].push(project);
   return groups;
 }, { cases: [], concepts: [] });
 

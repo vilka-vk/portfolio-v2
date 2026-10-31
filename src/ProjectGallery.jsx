@@ -27,7 +27,6 @@ function ProjectCard({ project, language }) {
   return <Tag className={`project-card${project.href ? '' : ' project-card-static'}`} {...linkProps}>
     <div className="project-title"><h3>{project.title}</h3><p><Copy values={descriptions[project.id]} /></p></div>
     <div className="project-media"><ContentImage src={`/${project.image}`} alt={project.alt} loading={project.loading} /></div>
-    <div className="project-metrics"><ul>{project.metricElements.map((metric, index) => <li key={index}>{metric}</li>)}</ul>{project.href && <><span className="metrics-arrow" aria-hidden="true">↗</span><span className="project-details"><Copy values={['Подробнее', 'Read more']} /> <span aria-hidden="true">↗</span></span></>}</div>
   </Tag>;
 }
 
