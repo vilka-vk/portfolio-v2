@@ -3,6 +3,7 @@ import parse, { domToReact } from 'html-react-parser';
 import { MetalHeart, MetalText, useHeroMetal } from './HeroMetal.jsx';
 import { Skills } from './Skills.jsx';
 import { ProjectGallery } from './ProjectGallery.jsx';
+import { LanguageSwitch } from './LanguageSwitch.jsx';
 import { createPageMotion } from './page-motion.js';
 import projects from './content/projects.json';
 import homeContent from './content/home.html?raw';
@@ -48,9 +49,7 @@ function Header() {
       <span><b>Violetta Morozova</b><small>Senior Product Designer</small></span>
     </a>
     <div className="header-actions">
-      <div className="lang-switch" role="group" aria-label={language === 'en' ? 'Select language' : 'Выбрать язык'}>
-        {['ru', 'en'].map(value => <button key={value} type="button" className={language === value ? 'active' : ''} aria-pressed={language === value} onClick={() => setLanguage(value)}>{value.toUpperCase()}</button>)}
-      </div>
+      <LanguageSwitch language={language} onChange={setLanguage} />
       <a className="quiet-link" href={cv} download>CV ↗</a>
       <a className="quiet-link hide-mobile hide-tablet" href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
