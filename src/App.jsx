@@ -15,8 +15,8 @@ import { CaseResults } from './CaseResults.jsx';
 const caseContent = import.meta.glob(['./content/*.html', '!./content/home.html'], { query: '?raw', import: 'default' });
 const Language = createContext(null);
 const cvByLanguage = {
-  ru: '/Senior_Product_Designer_Violetta_Morozova_Rus.pdf',
-  en: '/Senior_Product_Designer_Violetta_Morozova_Eng.pdf',
+  ru: 'https://drive.google.com/file/d/1pLtgw293nHkZ_w4SJMo3SY5-RClAPJOc/view?usp=sharing',
+  en: 'https://drive.google.com/file/d/1J_51LItjXEaqFosuszpa1_fubltq3zjl/view?usp=sharing',
 };
 const linkedIn = 'https://linkedin.com/in/violetta-morozova';
 
@@ -44,13 +44,13 @@ function Header() {
     return () => window.removeEventListener('scroll', update);
   }, []);
   return <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-    <a className="identity" href="/" aria-label="Violetta Morozova — на главную">
+    <a className="identity" href="/" aria-label="Violetta Morozova – на главную">
       <ContentImage src="/img/avatar.png" alt="Violetta Morozova" loading="eager" />
       <span><b>Violetta Morozova</b><small>Senior Product Designer</small></span>
     </a>
     <div className="header-actions">
       <LanguageSwitch language={language} onChange={setLanguage} />
-      <a className="quiet-link" href={cv} download>CV ↗</a>
+      <a className="quiet-link" href={cv} target="_blank" rel="noopener noreferrer">CV ↗</a>
       <a className="quiet-link hide-mobile hide-tablet" href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </header>;
@@ -61,7 +61,7 @@ function Footer() {
   const cv = cvByLanguage[language];
   return <footer className="site-footer"><div className="page-shell footer-inner">
     <div className="footer-bottom"><span>© 2026 Violetta Morozova</span><div>
-      <a href={cv} download>CV ↗</a>
+      <a href={cv} target="_blank" rel="noopener noreferrer">CV ↗</a>
       <a href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="#top"><Text ru="Наверх ↑" en="Top ↑" /></a>
     </div></div>

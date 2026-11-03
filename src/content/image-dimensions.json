@@ -16,8 +16,8 @@
     "height": 1448
   },
   "/img/work-forrest.jpg": {
-    "width": 4488,
-    "height": 4480
+    "width": 4244,
+    "height": 5046
   },
   "/img/work-gutstuff.jpg": {
     "width": 1103,
@@ -40,8 +40,8 @@
     "height": 1363
   },
   "/img/work-trinoray.jpg": {
-    "width": 1350,
-    "height": 1482
+    "width": 1254,
+    "height": 1254
   },
   "/cases/img/bashnya-01.jpg": {
     "width": 1600,
@@ -304,7 +304,11 @@
     "height": 1363
   },
   "/img/work-trinoray.webp": {
-    "width": 1350,
-    "height": 1482
+    "width": 1254,
+    "height": 1254
+  },
+  "/img/work-forrest.png": {
+    "width": 4244,
+    "height": 5046
   }
 }

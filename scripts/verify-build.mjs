@@ -52,6 +52,13 @@ function checkReference(value, base) {
 for (const [path, { nodes }] of pages) {
   const base = `${origin}${path}`;
   for (const node of nodes) {
+    if (node.name === 'a' && node.attribs.href) {
+      const url = new URL(node.attribs.href, base);
+      if (['http:', 'https:'].includes(url.protocol) && url.origin !== origin) {
+        assert.equal(node.attribs.target, '_blank', `${path}: external link must open in a new tab: ${url.href}`);
+        assert.ok(node.attribs.rel?.split(/\s+/).includes('noopener'), `${path}: external link needs noopener: ${url.href}`);
+      }
+    }
     for (const attribute of ['src', 'href']) {
       const value = node.attribs[attribute];
       if (value) checkReference(value, base);

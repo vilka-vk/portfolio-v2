@@ -8,8 +8,8 @@ const descriptions = {
   gutstuff: ['Приложение для здоровья кишечника', 'Gut health app'],
   saymore: ['Платформа поддержки и общения', 'Community and support platform'],
   oprosso: ['Платформа для исследований', 'Research platform'],
-  bashnya: ['Интерфейс игрового киоска', 'In-game kiosk interface'],
-  kant: ['Образовательный сайт', 'Education website'],
+  bashnya: ['Интерфейс игрового киоска, AI-пайплайн', 'In-game kiosk interface, AI pipeline'],
+  kant: ['Образовательный сайт, AI-пайплайн', 'Education website, AI pipeline'],
   taromant: ['Колесо фортуны в Telegram', 'Telegram fortune wheel'],
   trinoray: ['Исследование поискового интерфейса', 'Search interface research'],
 };
@@ -22,11 +22,16 @@ function ProjectCard({ project, language }) {
   const linkProps = project.href ? {
     href: project.href,
     ...(project.external ? { target: '_blank', rel: 'noopener' } : {}),
-    'aria-label': `${project.title} — ${language === 'en' ? 'view project' : 'открыть проект'}`,
+    'aria-label': `${project.title} – ${project.id === 'kant' ? (language === 'en' ? 'view website' : 'посмотреть сайт') : (language === 'en' ? 'view project' : 'открыть проект')}`,
   } : { tabIndex: 0, 'aria-label': project.title };
   return <Tag className={`project-card${project.href ? '' : ' project-card-static'}`} {...linkProps}>
-    <div className="project-title"><h3>{project.title}</h3><p><Copy values={descriptions[project.id]} /></p></div>
-    <div className="project-media"><ContentImage src={`/${project.image}`} alt={project.alt} loading={project.loading} /></div>
+    <div className="project-media"><ContentImage src={`/${project.image}`} alt={project.alt} loading={project.loading} />
+      {project.href && (!project.external || project.id === 'kant') && <span className={`project-open${project.id === 'kant' ? ' project-open-site' : ''}`} aria-hidden="true">
+        {project.id === 'kant' && <Copy values={['Посмотреть сайт', 'View website']} />}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+      </span>}
+    </div>
+    <div className="project-title" title={`${project.title} – ${descriptions[project.id][language === 'en' ? 1 : 0]}`}><h3>{project.title}</h3><span aria-hidden="true"> – </span><Copy values={descriptions[project.id]} /></div>
   </Tag>;
 }
 

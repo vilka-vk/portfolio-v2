@@ -48,8 +48,8 @@ export function Skills() {
     <div className="expertise-languages" aria-labelledby="skills-languages">
       <h3 id="skills-languages"><Copy value={['Языки', 'Languages']} /></h3>
       <ul>
-        <li><Copy value={["Английский — B1 / Intermediate", "English — B1 / Intermediate"]} /></li>
-        <li><Copy value={["Русский — родной", "Russian — Native"]} /></li>
+        <li><Copy value={["Английский – B1 / Intermediate", "English – B1 / Intermediate"]} /></li>
+        <li><Copy value={["Русский – родной", "Russian – Native"]} /></li>
       </ul>
     </div>
   </section>;
