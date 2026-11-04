@@ -50,8 +50,8 @@ function Header() {
     </a>
     <div className="header-actions">
       <LanguageSwitch language={language} onChange={setLanguage} />
-      <a className="quiet-link" href={cv} target="_blank" rel="noopener noreferrer">CV ↗</a>
-      <a className="quiet-link hide-mobile hide-tablet" href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a className="quiet-link" href={cv} target="_blank" rel="noopener noreferrer">CV <span className="link-arrow" aria-hidden="true">↗</span></a>
+      <a className="quiet-link hide-mobile hide-tablet" href={linkedIn} target="_blank" rel="noopener">LinkedIn <span className="link-arrow" aria-hidden="true">↗</span></a>
     </div>
   </header>;
 }
@@ -61,8 +61,8 @@ function Footer() {
   const cv = cvByLanguage[language];
   return <footer className="site-footer"><div className="page-shell footer-inner">
     <div className="footer-bottom"><span>© 2026 Violetta Morozova</span><div>
-      <a href={cv} target="_blank" rel="noopener noreferrer">CV ↗</a>
-      <a href={linkedIn} target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href={cv} target="_blank" rel="noopener noreferrer">CV <span className="link-arrow" aria-hidden="true">↗</span></a>
+      <a href={linkedIn} target="_blank" rel="noopener">LinkedIn <span className="link-arrow" aria-hidden="true">↗</span></a>
       <a href="#top"><Text ru="Наверх ↑" en="Top ↑" /></a>
     </div></div>
   </div></footer>;
