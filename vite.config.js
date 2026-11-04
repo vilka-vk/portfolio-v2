@@ -27,6 +27,14 @@ const initializeMetrika = `(function(m,e,t,r,i,k,a){
 ym(${metrikaId},'init',{ssr:true,webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});`;
 
 export default defineConfig({
+  // The library shares theme and rendering settings per module. Keep the dark
+  // button independent from the light chromatic text and heart renderer.
+  resolve: {
+    alias: {
+      'metal-fx-button': fileURLToPath(new URL('./node_modules/metal-fx/dist/index.es.js', import.meta.url)) + '?button',
+    },
+  },
+  optimizeDeps: { exclude: ['metal-fx-button'] },
   plugins: [react(), {
     name: 'initial-language',
     transformIndexHtml() {

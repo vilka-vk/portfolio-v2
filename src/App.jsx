@@ -4,6 +4,7 @@ import { MetalHeart, MetalText, useHeroMetal } from './HeroMetal.jsx';
 import { Skills } from './Skills.jsx';
 import { ProjectGallery } from './ProjectGallery.jsx';
 import { LanguageSwitch } from './LanguageSwitch.jsx';
+import { ContactMetal } from './ContactMetal.jsx';
 import { createPageMotion } from './page-motion.js';
 import projects from './content/projects.json';
 import homeContent from './content/home.html?raw';
@@ -80,9 +81,7 @@ const Home = memo(function Home() {
   const content = useMemo(() => {
     const options = { replace(node) {
       if (node.name === 'a' && node.attribs?.class === 'round-link') {
-        return <div className="contact-metal">
-          <a className="round-link" href={node.attribs.href} target={node.attribs.target} rel={node.attribs.rel}>{domToReact(node.children)}</a>
-        </div>;
+        return <ContactMetal paused={metal.paused} href={node.attribs.href} target={node.attribs.target} rel={node.attribs.rel}>{domToReact(node.children)}</ContactMetal>;
       }
       if (node.attribs?.['data-metal-heart'] !== undefined) return <MetalHeart metal={metal} />;
       if (node.name === 'em' && node.attribs?.['data-metal-text'] !== undefined) {
