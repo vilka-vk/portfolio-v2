@@ -36,14 +36,13 @@ a:focus-visible,button:focus-visible{outline:3px solid #5277ce;outline-offset:4p
 @keyframes availability-rainbow{0%,100%{color:#ff3264}14.285714%{color:#ffa01e}28.571429%{color:#ffe14a}42.857143%{color:#a3e635}57.142857%{color:#38bdf8}71.428571%{color:#288cff}85.714286%{color:#bf00ff}}
 .hero h1{max-width:1132px;margin:0;font-size:clamp(52px,7vw,108px);line-height:.96;letter-spacing:-.065em;font-weight:500}.hero h1 em{font-style:normal;color:var(--muted)}
 .hero-bottom{margin-top:48px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}.hero-bottom>p{max-width:720px;margin:0;font-size:clamp(20px,2vw,24px);line-height:1.3;letter-spacing:-.025em;color:var(--muted)}
-.contact-metal{position:relative;isolation:isolate;justify-self:end;border-radius:1000px;transition:transform 300ms cubic-bezier(.16,1,.3,1)}.round-link{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-width:192px;min-height:64px;padding:16px 20px;background:#000;color:#fff;border:0;border-radius:1000px;cursor:pointer}.round-link b{font-size:20px;font-weight:400}
-.contact-metal-effect{position:absolute;inset:0;z-index:1;border-radius:inherit;overflow:hidden;pointer-events:none}
+.contact-metal{position:relative;isolation:isolate;justify-self:end;border-radius:1000px}.round-link{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-width:192px;min-height:64px;padding:16px 20px;background:#000;color:#fff;border:0;border-radius:1000px;cursor:pointer}.round-link b{font-size:20px;font-weight:400}
+.contact-metal-effect{position:absolute;inset:0;z-index:1;border-radius:inherit;overflow:visible;pointer-events:none}
 .contact-metal-effect .metal-fx-root{position:absolute;inset:2px;width:auto;height:auto;background:transparent!important}
-.contact-metal-effect .metal-fx-glow-svg{filter:brightness(0) invert(1)}
+.contact-metal-effect .metal-fx-glow-svg{border-radius:inherit;overflow:hidden;filter:brightness(0) invert(1)}
 .contact-metal-host{display:block;width:100%;height:100%;pointer-events:none!important}
 .contact-metal-effect .metal-fx-content{height:100%}
 .round-link>span:not([data-metal-fx-reflection]),.round-link>b{position:relative;z-index:1}
-@media(hover:hover) and (pointer:fine){.contact-metal:hover{transform:translateX(-6px)}}
 .hero-metal-word{white-space:nowrap}
 .hero h1 .hero-metal-text{position:relative;display:inline-block;white-space:nowrap;vertical-align:baseline;color:#555752}
 .hero-metal-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
@@ -152,4 +151,4 @@ html[data-gallery-initial="concepts"] #tab-concepts{background:#1d1d1f;color:#ff
 .link-arrow{display:inline-block;transform-origin:center;transition:transform 300ms cubic-bezier(.16,1,.3,1)}
 a:focus-visible .link-arrow{transform:rotate(45deg)}
 @media(hover:hover) and (pointer:fine){a:hover .link-arrow{transform:rotate(45deg)}}
-@media(prefers-reduced-motion:reduce){.round-link:hover{transform:none}.link-arrow{transition:none}}
+@media(prefers-reduced-motion:reduce){.link-arrow{transition:none}}
